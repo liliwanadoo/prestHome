@@ -1,7 +1,7 @@
 
 import { User } from './user';
 import { Injectable } from '@angular/core';
-import { LocalStorageService } from '../shared/services/local-storage.service';
+import { LocalStorageService } from '../shared/service/local-storage.service';
 
 
 
