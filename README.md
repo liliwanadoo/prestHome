@@ -1,16 +1,6 @@
 # PrestaFind
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.3.
-## Devs
-
-PB alias Platon Serpentard
-FT alias Lili Poufsouffle
-CV alias Cecee Gryffondor
-
-## Devs
-PB alias Platon Serpentard
-FT alias Lili Poufsouffle
-CV alias Cecee Gryffondor
 
 ## Development server
 
