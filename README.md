@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Devs
 PB alias Platon Serpentard
-FT alias Lily Poufsouffle
+FT alias Lili Poufsouffle
 CV alias Cecee Gryffondor
 
 ## Development server
