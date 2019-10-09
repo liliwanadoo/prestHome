@@ -3,7 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { AccueilComponent } from './pages/accueil/accueil.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', component: AccueilComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
