@@ -11,12 +11,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     AccueilComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    SignInComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -24,6 +28,7 @@ import { environment } from '../environments/environment';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
+    HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],

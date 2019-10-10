@@ -5,16 +5,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Accueil</title>
 </head>
   <body>
-
-    <div class="jumbotron text-center">
-      <h1>Accueil Prest-Home</h1>
-      <p>Un projet qui envoi du lourd...</p>
-    </div><br/>
+    <header>
+      <div class="jumbotron text-center">
+          <h1>Accueil Prest-Home</h1>
+          <p>Un projet qui envoi du lourd...</p>
+      </div><br/>
+    </header>
 
     <div id="signInLogin">
-      <button mat-raised-button color="primary">Inscription / Connexion</button>
+      <a role='button' [routerLink]="['sign']">Inscription / Connexion</a>
     </div><br/><br/>
   </body>
 
