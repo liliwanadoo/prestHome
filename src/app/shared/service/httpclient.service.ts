@@ -20,7 +20,7 @@ export class HttpclientService {
   }
 
   /**
-   *  Call the api to get a specific Usr
+   *  Call the api to get a specific
    * @param id : l'id du Usr ciblé
    */
   public getUsr(id: number): Observable<any> {
