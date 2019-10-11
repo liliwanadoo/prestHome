@@ -1,0 +1,19 @@
+<div class="div-form">
+    <h1>Création d'un nouveau prestataire</h1>
+    <div class="div-form">
+        <form [formGroup]="prestForm">Raison sociale :
+            <mat-form-field>
+                <input matInput type="text" id="raisonSoc" formControlName="raisonSoc" placeholder="Quelle est votre raison sociale ?" size="530">
+                <div class="errorPlaceHolder" *ngIf="raisonSoc.errors && raisonSoc.touched">
+                    La raison sociale doit faire au moins 3 caractères
+                </div>
+            </mat-form-field><br>Téléphone :
+            <mat-form-field>
+                <input matInput type="text" id="tel" formControlName="tel" placeholder="Quel est votre numéro ?" size="530">
+                <div class="errorPlaceHolder" *ngIf="tel.errors && tel.touched">
+                    Le téléphone doit faire au moins 10 caractères
+                </div>
+            </mat-form-field>
+        </form>
+    </div>
+</div>
