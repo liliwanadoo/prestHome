@@ -20,7 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     AccueilComponent,
     ToolbarComponent,
-    SignInComponent,
+    SignInComponent
 
   ],
   imports: [
