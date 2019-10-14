@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, AbstractControl, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-prestataire.component.scss']
 })
 export class AddPrestataireComponent implements OnInit {
-
+  public idUsr: number;
   private hasErrors = false;
   /**
    * Form manager handled by ReactiveForms
@@ -19,11 +19,14 @@ export class AddPrestataireComponent implements OnInit {
   public prestForm: FormGroup;
   public profilavailable: string = null;
   public profilchoices: string[] = ['Client', 'Prestataire', 'Les deux'];
+  sub: any;
    /**
     *
     * @param formBuilder As Dependency Injection
     */
-   constructor(private formBuilder: FormBuilder, private router: Router
+   constructor(private formBuilder: FormBuilder,
+               private route: ActivatedRoute,
+               private router: Router
     ) { }
 
 /**
@@ -40,7 +43,15 @@ public get tel(): AbstractControl {
 }
 
 ngOnInit() {
+  this.sub = this.route
+      .queryParams
+      .subscribe(params => {
+        // Defaults to 0 if no query param provided.
+        this.idUsr = +params['id'];
+      });
+  console.log(this.idUsr);
   this.prestForm = this.formBuilder.group({
+    id_usr: this.idUsr,
     raisonSoc: [
       '',
       [Validators.required,
@@ -53,6 +64,7 @@ ngOnInit() {
     ]
   });
   this.clientForm = this.formBuilder.group({
+    id_usr: this.idUsr,
     pseudo: [
       '',
       [Validators.required,
@@ -60,14 +72,17 @@ ngOnInit() {
     ]
   });
 }
-
+ngOnDestroy() {
+  this.sub.unsubscribe();
+}
 public submit() {
   if (this.prestForm.valid) {
-    console.log('Yo.....Datas are : ' + JSON.stringify(this.prestForm.value));
+    console.log('Yo.....DataPresta are : ' + JSON.stringify(this.prestForm.value));
+    console.log('Yo.....Dataclient are : ' + JSON.stringify(this.clientForm.value));
    // Object.keys(this.prestForm.controls).forEach(key => {
    //   console.log(key + ' [ ' + JSON.stringify(this.prestForm.controls[key].errors) + '] : ' + this.prestForm.controls[key].status);
    // });
-     this.router.navigate(['']);
+   // this.router.navigate(['']);
   // Cherry on cake : put a toast to inform the end categorie...
   } else {
     Object.keys(this.prestForm.controls).forEach(key => {
