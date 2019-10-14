@@ -61,7 +61,7 @@ public submit() {
   this.http.postUsr(newUsr).pipe(first())
   .subscribe((data: HttpResponse<number>) => {
       if (data.status === 201) {
-        this.router.navigate(['']);
+        this.router.navigate(['fillprofil']);
       }
     }, error => {
       console.log( 'not working sorry' );
@@ -70,7 +70,7 @@ public submit() {
 
     );
     // TODO : probablement un commentaire pour dire que le compte a bien été créé
-  this.router.navigate(['']);
+  this.router.navigate(['fillprofil']);
   }
 }
 }

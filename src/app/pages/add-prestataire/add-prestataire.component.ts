@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, AbstractControl, Validators } from '@angular/fo
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-add-prestataire',
   templateUrl: './add-prestataire.component.html',
@@ -14,8 +15,10 @@ export class AddPrestataireComponent implements OnInit {
   /**
    * Form manager handled by ReactiveForms
    */
+  public clientForm: FormGroup;
   public prestForm: FormGroup;
-
+  public profilavailable: string = null;
+  public profilchoices: string[] = ['Client', 'Prestataire', 'Les deux'];
    /**
     *
     * @param formBuilder As Dependency Injection
@@ -26,6 +29,9 @@ export class AddPrestataireComponent implements OnInit {
 /**
  * Controls getter
  */
+public get pseudo(): AbstractControl {
+  return this.clientForm.controls.pseudo;
+}
  public get raisonSoc(): AbstractControl {
   return this.prestForm.controls.raisonSoc;
 }
@@ -41,6 +47,13 @@ ngOnInit() {
         Validators.minLength(3)]
     ],
     tel: [
+      '',
+      [Validators.required,
+        Validators.minLength(3)]
+    ]
+  });
+  this.clientForm = this.formBuilder.group({
+    pseudo: [
       '',
       [Validators.required,
         Validators.minLength(3)]
