@@ -43,4 +43,16 @@ export class HttpclientService {
       }
     );
   }
+
+     /**
+   *  Call the api to get all the cats
+   */
+  public getCats(): Observable<any> {
+    return this.http.get(
+      environment.apiRoot + 'CatLists/alpha/',
+      {
+        observe: 'response'
+      }
+    );
+  }
 }
