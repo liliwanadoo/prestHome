@@ -18,6 +18,7 @@ import { AddPrestataireComponent } from './pages/add-prestataire/add-prestataire
 import { PrestataireDetailsComponent } from './pages/prestataire-details/prestataire-details.component';
 import { AddPrestaNoteComponent } from './pages/add-presta-note/add-presta-note.component';
 
+import { ListeCoordonneeComponent } from './pages/liste-coordonnee/liste-coordonnee.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AddPrestaNoteComponent } from './pages/add-presta-note/add-presta-note.
     SignInComponent,
     AddPrestataireComponent,
     PrestataireDetailsComponent,
-    AddPrestaNoteComponent
+    AddPrestaNoteComponent,
+    ListeCoordonneeComponent
 
   ],
   imports: [
