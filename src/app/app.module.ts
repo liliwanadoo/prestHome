@@ -15,6 +15,7 @@ import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddPrestataireComponent } from './pages/add-prestataire/add-prestataire.component';
+import { ListeCoordonneeComponent } from './pages/liste-coordonnee/liste-coordonnee.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AddPrestataireComponent } from './pages/add-prestataire/add-prestataire
     AccueilComponent,
     ToolbarComponent,
     SignInComponent,
-    AddPrestataireComponent
+    AddPrestataireComponent,
+    ListeCoordonneeComponent
 
   ],
   imports: [
