@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-presta-note.component.scss']
 })
 export class AddPrestaNoteComponent implements OnInit {
+  _isNoteHidden: boolean;
 
   constructor() { }
 
