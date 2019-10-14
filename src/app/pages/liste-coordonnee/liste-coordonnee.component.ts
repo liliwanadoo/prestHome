@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CoordonneeList } from 'src/app/models/coordonnee-list';
+import { Coordonnee } from 'src/app/models/coordonnee';
 
 @Component({
   selector: 'app-liste-coordonnee',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListeCoordonneeComponent implements OnInit {
 
-  constructor() { }
+  public coordonnees: Array<Coordonnee>;
+  public city: Coordonnee;
 
-  ngOnInit() {
+  constructor(private collection: CoordonneeList) { }
+  ngOnInit(): void {
+    this.coordonnees = this.collection.getCollection();
   }
 
 }
