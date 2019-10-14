@@ -31,4 +31,16 @@ export class HttpclientService {
       }
     );
   }
+
+   /**
+   *  Call the api to get all the coords
+   */
+  public getCoords(): Observable<any> {
+    return this.http.get(
+      environment.apiRoot + 'CoordLists/',
+      {
+        observe: 'response'
+      }
+    );
+  }
 }

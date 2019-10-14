@@ -16,7 +16,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddPrestataireComponent } from './pages/add-prestataire/add-prestataire.component';
 import { PrestataireDetailsComponent } from './pages/prestataire-details/prestataire-details.component';
-import { AddPrestaNoteComponent } from './models/add-presta-note/add-presta-note.component';
+import { AddPrestaNoteComponent } from './pages/add-presta-note/add-presta-note.component';
+
+import { ListeCoordonneeComponent } from './pages/liste-coordonnee/liste-coordonnee.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { AddPrestaNoteComponent } from './models/add-presta-note/add-presta-note
     SignInComponent,
     AddPrestataireComponent,
     PrestataireDetailsComponent,
-    AddPrestaNoteComponent
+    AddPrestaNoteComponent,
+    ListeCoordonneeComponent
 
   ],
   imports: [
