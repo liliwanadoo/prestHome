@@ -11,13 +11,16 @@
 <body>
     <header>
         <div class="jumbotron text-center">
-            <h1>Accueil Prest-Home</h1>
-            <p>Un projet qui envoie du lourd...</p>
+            <h1>Prest-Home</h1>
         </div><br/>
     </header>
+    <h1>Détails du prestataire:</h1>
 
+    <span (click)="toggleStatus(notation)"><button> Noter une prestation </button></span><br><br/>
 
-    <button> Noter une prestation </button><br><br/>
+    <div id="notation" [Hidden]="notation.isNoteHidden">
+    <app-add-presta-note></app-add-presta-note>
+    </div>
 
     <footer>
     <app-toolbar></app-toolbar>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AddPrestaNoteComponent } from '../add-presta-note/add-presta-note.component';
+
+
 
 @Component({
   selector: 'app-prestataire-details',
@@ -6,6 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./prestataire-details.component.scss']
 })
 export class PrestataireDetailsComponent implements OnInit {
+
+
+  public toggleStatus(note: AddPrestaNoteComponent): void {
+    note._isNoteHidden = !note._isNoteHidden;
+  }
+
 
   constructor() { }
 

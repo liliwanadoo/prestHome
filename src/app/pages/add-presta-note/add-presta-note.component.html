@@ -1,1 +1,75 @@
-<p>add-presta-note works!</p>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Ajouter une note</title>
+</head>
+
+<body>
+
+    <form [formGroup]="noteForm">
+
+      <mat-form-field>
+        Date de la prestation :
+        <input matInput type="date" placeholder="Date de la prestation" class="form-control" id="date" formControlName="date" required>
+        <div id="error" class="errorPlaceHolder" *ngIf ="date.errors && date.touched">
+              <p *ngIf = "date.errors.required">
+                La date de la prestation est obligatoire
+              </p>
+        </div>
+        <div id="error" class="errorPlaceHolder" *ngIf ="date.errors && date.touched">
+              <p *ngIf = "!date.errors.isLowerThan">
+                La date de la prestation ne peut pas être supérieure à la date du jour
+              </p>
+        </div>
+      </mat-form-field>
+
+
+        <h3> Vos notations </h3><br/>
+        Qualité :<br/>
+        <mat-radio-group aria-label="qualite" required>
+          <mat-radio-button value="1"> 1</mat-radio-button>
+          <mat-radio-button value="2"> 2</mat-radio-button>
+          <mat-radio-button value="3"> 3</mat-radio-button>
+          <mat-radio-button value="4"> 4</mat-radio-button>
+          <mat-radio-button value="5"> 5</mat-radio-button>
+        </mat-radio-group><br/><br/>
+
+        Poncutalité :<br/>
+        <mat-radio-group aria-label="poncutalite" required>
+          <mat-radio-button value="1"> 1</mat-radio-button>
+          <mat-radio-button value="2"> 2</mat-radio-button>
+          <mat-radio-button value="3"> 3</mat-radio-button>
+          <mat-radio-button value="4"> 4</mat-radio-button>
+          <mat-radio-button value="5"> 5</mat-radio-button>
+        </mat-radio-group><br/><br/>
+
+        Amabilité :<br/>
+        <mat-radio-group aria-label="amabilite" required>
+          <mat-radio-button value="1"> 1</mat-radio-button>
+          <mat-radio-button value="2"> 2</mat-radio-button>
+          <mat-radio-button value="3"> 3</mat-radio-button>
+          <mat-radio-button value="4"> 4</mat-radio-button>
+          <mat-radio-button value="5"> 5</mat-radio-button>
+        </mat-radio-group><br/><br/>
+
+        Respect des délais :<br/>
+        <mat-radio-group aria-label="respect des delais">
+          <mat-radio-button value="1"> 1</mat-radio-button>
+          <mat-radio-button value="2"> 2</mat-radio-button>
+          <mat-radio-button value="3"> 3</mat-radio-button>
+          <mat-radio-button value="4"> 4</mat-radio-button>
+          <mat-radio-button value="5"> 5</mat-radio-button><br>
+          <mat-radio-button value="null"> Non approprié au type de prestation</mat-radio-button>
+        </mat-radio-group><br/><br/>
+
+      <button> Noter une prestation </button><br/><br/>
+      <button> Annuler </button><br/><br/>
+    </form>
+
+
+
+
