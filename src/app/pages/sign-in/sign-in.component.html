@@ -1,21 +1,19 @@
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-   <title>Inscription</title>
-</head>
+<!DOCTYPE html>
+<html lang="en">
 <body>
 
-  <h2>Inscription</h2>
+	<div class="bg-contact2" style="background-image: url('images/bg-01.jpg');">
+		<div class="container-contact2">
+			<div class="wrap-contact2">
+				<h2 style="text-align:center;">Inscription</h2>
+        <hr>
+        <br>
 
-  <form [formGroup]="userForm">
+  <form [formGroup]="userForm" class="contact2-form validate-form">
 
-    <div class="form-group">
+    <div class="form-group wrap-input2 validate-input">
       <label for="email">Votre email:</label>
-      <input type="email" placeHolder="Entrez votre email ici" class="form-control" id="email" formControlName="email" required>
+      <input type="email" placeHolder="Entrez votre email ici" class="form-control input2" id="email" formControlName="email" required>
       <div id="error" class="errorPlaceHolder" *ngIf ="email.errors && email.touched">
             <p *ngIf = "email.errors.required">
               L'email est requis
@@ -29,9 +27,9 @@
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group wrap-input2 validate-input">
       <label for="pwd">Votre mot de passe:</label>
-      <input type="password" placeHolder="Entrez votre email ici" class="form-control" id="pwd" formControlName="password" required>
+      <input type="password" placeHolder="Entrez votre mot de passe ici" class="form-control input2" id="pwd" formControlName="password" required>
       <div id="error" class="errorPlaceHolder" *ngIf ="password.errors && password.touched">
             <p *ngIf = "password.errors.required">
               Le mot de passe est requis
@@ -47,13 +45,40 @@
         <input class="form-check-input" type="checkbox"> Se souvenir de moi
       </label>
     </div>
+<div style="text-align:center;">
+    <button mat-flat-button color="primary" type="submit" (click)="submit()"> M'inscrire </button><br/><br/>
 
-    <button type="submit"> M'inscrire </button><br/><br/>
-
-    <button routerLink=""> Annuler </button>
+    <button mat-flat-button color="warn" routerLink=""> Annuler </button>
+    </div>
   <br/><br/>
   </form>
 
+			</div>
+		</div>
+	</div>
+
+
+
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-23581568-13');
+	</script>-->
+
 </body>
-
-
+</html>

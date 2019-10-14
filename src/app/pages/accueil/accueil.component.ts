@@ -8,7 +8,7 @@ import { FormGroup, FormControl, AbstractControl, FormBuilder, Validators } from
 })
 export class AccueilComponent implements OnInit {
 
-  public hasErrors: boolean = false;
+  public hasErrors = false;
   searchForm = new FormGroup({
     ville: new FormControl(''),
     cp: new FormControl('')
