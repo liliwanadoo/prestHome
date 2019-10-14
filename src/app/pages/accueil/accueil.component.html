@@ -1,5 +1,5 @@
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -7,16 +7,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <title>Accueil</title>
 </head>
-  <body>
-    <header>
-      <div class="jumbotron text-center">
-          <h1>Accueil Prest-Home</h1>
-          <p>Un projet qui envoi du lourd...</p>
-      </div><br/>
-    </header>
 
+<body>
+    <header>
+        <div class="jumbotron text-center">
+            <h1>Accueil Prest-Home</h1>
+            <p>Un projet qui envoie du lourd...</p>
+        </div><br/>
+    </header>
+    <app-add-prestataire></app-add-prestataire>
     <div id="signInLogin">
-      <a role='button' [routerLink]="['sign']">Inscription / Connexion</a>
+        <a role='button' [routerLink]="['sign']">Inscription / Connexion</a>
     </div><br/><br/>
 
 <form [formGroup]="searchForm">
@@ -58,6 +59,57 @@
     <br/><br/>
   </div>
 </form>
+    <form [formGroup]="searchForm">
+        <div class="d-flex ">
+            <mat-form-field>
+                <input matInput type="text" placeholder="Ville" class="form-control" id="ville" formControlName="ville" required>
+                <div id="error" class="errorPlaceHolder" *ngIf="ville.errors && ville.touched">
+                    <p *ngIf="ville.errors.required">
+                        La ville est requise
+                    </p>
+                    <p *ngIf="ville.errors.pattern">
+                        Cette ville n'est pas valide
+                    </p>
+                </div>
+            </mat-form-field>
 
-  </body>
+            <mat-form-field>
+                <input matInput type="text" placeholder="Code Postal" class="form-control" id="cp" formControlName="cp" required>
+                <div id="error" class="errorPlaceHolder" *ngIf="cp.errors && cp.touched">
+                    <p *ngIf="cp.errors.required">
+                        L'email est requis
+                    </p>
+                    <p *ngIf="cp.errors.minlength">
+                        Cet email n'est pas valide
+                    </p>
+                    <p *ngIf="cp.errors.maxlength">
+                        Cet email n'est pas valide
+                    </p>
+                </div>
+            </mat-form-field>
 
+            <mat-form-field>
+                <mat-select placeholder="Catégories :" id="categorie">
+                    <mat-option value="animalSitting">Animal-Sitting</mat-option>
+                    <mat-option value="animation">Animation</mat-option>
+                    <mat-option value="babySitting">Baby-Sitting</mat-option>
+                    <mat-option value="carreleur">Carreleur</mat-option>
+                    <mat-option value="cours particulier">Cours particulier</mat-option>
+                    <mat-option value="cuisine">Cuisine</mat-option>
+                    <mat-option value="decorationDesignInt">Décoration - Design d'intérieur</mat-option>
+                    <mat-option value="electricite">Electricité</mat-option>
+                    <mat-option value="gardiennage">Gardiennage</mat-option>
+                    <mat-option value="informatique">Informatique</mat-option>
+                    <mat-option value="jardinerie">Jardinerie</mat-option>
+                    <mat-option value="mecaniqueAuto">Mécanique auto</mat-option>
+                    <mat-option value="mecaniqueCyclo">Mécanique cyclo</mat-option>
+                    <mat-option value="menageNettoyage">Ménage - Nettoyage</mat-option>
+                    <mat-option value="plomberie">Plomberie</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <button>Rechercher</button>
+            <br/><br/>
+        </div>
+    </form>
+
+</body>

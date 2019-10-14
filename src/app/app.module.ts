@@ -14,13 +14,19 @@ import { environment } from '../environments/environment';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddPrestataireComponent } from './pages/add-prestataire/add-prestataire.component';
+import { PrestataireDetailsComponent } from './pages/prestataire-details/prestataire-details.component';
+import { AddPrestaNoteComponent } from './models/add-presta-note/add-presta-note.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AccueilComponent,
     ToolbarComponent,
-    SignInComponent
+    SignInComponent,
+    AddPrestataireComponent,
+    PrestataireDetailsComponent,
+    AddPrestaNoteComponent
 
   ],
   imports: [
