@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, AbstractControl, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-prestataire',
@@ -19,8 +20,7 @@ export class AddPrestataireComponent implements OnInit {
     *
     * @param formBuilder As Dependency Injection
     */
-   constructor(private formBuilder: FormBuilder,
-               private toastr: ToastrService
+   constructor(private formBuilder: FormBuilder, private router: Router
     ) { }
 
 /**
@@ -54,8 +54,7 @@ public submit() {
    // Object.keys(this.prestForm.controls).forEach(key => {
    //   console.log(key + ' [ ' + JSON.stringify(this.prestForm.controls[key].errors) + '] : ' + this.prestForm.controls[key].status);
    // });
-    this.toastr.success('Votre compte en tant que prestataire ' + this.prestForm.controls.raisonSoc + ' est créé', 'Info');
-  // this.router.navigate(['']);
+     this.router.navigate(['']);
   // Cherry on cake : put a toast to inform the end categorie...
   } else {
     Object.keys(this.prestForm.controls).forEach(key => {
