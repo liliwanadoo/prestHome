@@ -18,10 +18,10 @@ export class DateValidatorService {
       const serverDate = new Date(reponse.currentDateTime);
       const userDate = new Date(dateCtrl.value);
 
-      if (userDate.getDay > serverDate.getDay) {
+      if (userDate > serverDate) {
       resolve({ isLowerThan: false }); // take promise...
       } else {
-      resolve(null); } } );
+      resolve(null); }});
     } );
   }
 

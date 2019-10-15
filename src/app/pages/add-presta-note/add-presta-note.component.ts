@@ -10,14 +10,7 @@ import { DateValidatorService } from './../../shared/service/date-validator.serv
 export class AddPrestaNoteComponent implements OnInit {
   public hasErrors = false;
   noteForm: FormGroup;
-  _isNoteHidden: boolean;
 
-  public get isNoteHidden() {
-    return this._isNoteHidden;
-  }
-  public set isNoteHidden(isHidden: boolean) {
-    this._isNoteHidden = isHidden;
-  }
   public get date(): AbstractControl {
     return this.noteForm.controls.date;
   }
