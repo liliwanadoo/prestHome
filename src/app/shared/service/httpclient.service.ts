@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../../models/user';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
+import { Client } from 'src/app/models/client';
+import { Prestataire } from 'src/app/models/prestataire';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +19,15 @@ export class HttpclientService {
   public postUsr(usr: User): Observable<any> {
     return this.http.post<User>(
       environment.apiRoot + 'UsrLists/', usr);
+  }
+
+  public postClient(client: Client): Observable<any> {
+    return this.http.post<Client>(
+      environment.apiRoot + 'ClientCtrl/', client);
+  }
+  public postPrestataire(prestataire: Prestataire): Observable<any> {
+    return this.http.post<Prestataire>(
+      environment.apiRoot + 'PrestLists/', prestataire);
   }
 
   /**
