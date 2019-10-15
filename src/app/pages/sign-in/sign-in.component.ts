@@ -60,17 +60,16 @@ public submit() {
   newUsr.password = this.password.value;
   this.http.postUsr(newUsr).pipe(first())
   .subscribe((data: HttpResponse<number>) => {
-      if (data.status === 201) {
-        this.router.navigate(['fillprofil']);
-      }
-    }, error => {
+        // TODO : probablement un commentaire pour dire que le compte a bien été créé
+        this.router.navigate(['fillprofil'], { queryParams: { id: data } });
+
+    }, (error) => {
       console.log( 'not working sorry' );
     }
 
 
     );
-    // TODO : probablement un commentaire pour dire que le compte a bien été créé
-  this.router.navigate(['fillprofil']);
+
   }
 }
 }
