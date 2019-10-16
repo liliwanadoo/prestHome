@@ -1,0 +1,69 @@
+
+<body>
+  <br/>
+  <h2> Noter un prestataire sur une prestation : </h2>
+  <br/>  <br/>
+
+    <form [formGroup]="noteForm">
+      <h3>Date de la prestation :</h3><br/>
+      <mat-form-field>
+        <input matInput type="date" placeholder="Date de la prestation" class="form-control" id="date" formControlName="date" required>
+        <div id="error" class="errorPlaceHolder" *ngIf ="date.errors && date.touched">
+              <p *ngIf = "date.errors.required">
+                La date de la prestation est obligatoire
+              </p>
+        </div>
+        <div id="error" class="errorPlaceHolder" *ngIf ="date.errors && date.touched">
+              <p *ngIf = "!date.errors.isLowerThan">
+                La date de la prestation ne peut pas être supérieure à la date du jour
+              </p>
+        </div>
+      </mat-form-field>
+
+
+        <h3> Vos notations </h3><br/>
+        Qualité :<br/>
+        <mat-radio-group aria-label="qualite" required>
+          <mat-radio-button value="1"> 1</mat-radio-button>
+          <mat-radio-button value="2"> 2</mat-radio-button>
+          <mat-radio-button value="3"> 3</mat-radio-button>
+          <mat-radio-button value="4"> 4</mat-radio-button>
+          <mat-radio-button value="5"> 5</mat-radio-button>
+        </mat-radio-group><br/><br/>
+
+        Poncutalité :<br/>
+        <mat-radio-group aria-label="poncutalite" required>
+          <mat-radio-button value="1"> 1</mat-radio-button>
+          <mat-radio-button value="2"> 2</mat-radio-button>
+          <mat-radio-button value="3"> 3</mat-radio-button>
+          <mat-radio-button value="4"> 4</mat-radio-button>
+          <mat-radio-button value="5"> 5</mat-radio-button>
+        </mat-radio-group><br/><br/>
+
+        Amabilité :<br/>
+        <mat-radio-group aria-label="amabilite" required>
+          <mat-radio-button value="1"> 1</mat-radio-button>
+          <mat-radio-button value="2"> 2</mat-radio-button>
+          <mat-radio-button value="3"> 3</mat-radio-button>
+          <mat-radio-button value="4"> 4</mat-radio-button>
+          <mat-radio-button value="5"> 5</mat-radio-button>
+        </mat-radio-group><br/><br/>
+
+        Respect des délais :<br/>
+        <mat-radio-group aria-label="respect des delais">
+          <mat-radio-button value="1"> 1</mat-radio-button>
+          <mat-radio-button value="2"> 2</mat-radio-button>
+          <mat-radio-button value="3"> 3</mat-radio-button>
+          <mat-radio-button value="4"> 4</mat-radio-button>
+          <mat-radio-button value="5"> 5</mat-radio-button><br>
+          <mat-radio-button value="null"> Non approprié au type de prestation</mat-radio-button>
+        </mat-radio-group><br/><br/>
+
+      <button> Noter une prestation </button><br/><br/>
+      <button [routerLink]="['/details']" > Annuler </button><br/><br/>
+  </form>
+</body>
+
+
+
+

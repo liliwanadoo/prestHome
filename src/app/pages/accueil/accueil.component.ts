@@ -28,13 +28,13 @@ export class AccueilComponent implements OnInit {
     this.searchForm = this.sf.group({
       ville: [
         '',
-        [Validators.required,
-        Validators.pattern('^([a-zA-Z\u0080-\u024F]+(?:. |-| |\'))*[a-zA-Z\u0080-\u024F]*$')]
+        Validators.required
       ],
       cp: [
         '',
         [Validators.minLength(5),
         Validators.maxLength(5),
+        Validators.pattern('[0-9]{5}'),
         Validators.required]
       ]
     });
