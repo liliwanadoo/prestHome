@@ -5,7 +5,31 @@ export class Notation {
   private _respectDetail: number;
   private _datePrestation: Date;
   private _photo: string;
+  private _idPrestataire: number;
+  private _idClient: number;
+  private _id: number;
 
+  public get id(): number {
+    return this._id;
+  }
+
+  public set id(value: number) {
+    this._id = value;
+  }
+  public get idPrestataire(): number {
+    return this._idPrestataire;
+  }
+
+  public set idPrestataire(value: number) {
+    this._idPrestataire = value;
+  }
+  public get idClient(): number {
+    return this._idClient;
+  }
+
+  public set idClient(value: number) {
+    this._idClient = value;
+  }
   public get amabilite(): number {
     return this._amabilite;
   }
@@ -29,7 +53,7 @@ export class Notation {
     this._ponctualite = value;
   }
 
-  public get repectDetail(): number {
+  public get respectDetail(): number {
     return this._respectDetail;
   }
 

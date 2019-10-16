@@ -7,7 +7,7 @@
     <form [formGroup]="noteForm">
       <h3>Date de la prestation :</h3><br/>
       <mat-form-field>
-        <input matInput type="date" placeholder="Date de la prestation" class="form-control" id="date" formControlName="date" required>
+        <input matInput type="date" placeholder="Date de la prestation" class="form-control" id="_datePrestation" formControlName="_datePrestation" required>
         <div id="error" class="errorPlaceHolder" *ngIf ="date.errors && date.touched">
               <p *ngIf = "date.errors.required">
                 La date de la prestation est obligatoire
@@ -23,7 +23,7 @@
 
         <h3> Vos notations </h3><br/>
         Qualité :<br/>
-        <mat-radio-group aria-label="qualite" id="qualite" formControlName="qualite" required>
+        <mat-radio-group aria-label="qualite" id="_qualite" formControlName="_qualite" required>
           <mat-radio-button value="1"> 1</mat-radio-button>
           <mat-radio-button value="2"> 2</mat-radio-button>
           <mat-radio-button value="3"> 3</mat-radio-button>
@@ -37,7 +37,7 @@
         </mat-radio-group><br/><br/>
 
         Poncutalité :<br/>
-        <mat-radio-group aria-label="poncutalite" id="ponctualite" formControlName="ponctualite" required>
+        <mat-radio-group aria-label="poncutalite" id="_ponctualite" formControlName="_ponctualite" required>
           <mat-radio-button value="1"> 1</mat-radio-button>
           <mat-radio-button value="2"> 2</mat-radio-button>
           <mat-radio-button value="3"> 3</mat-radio-button>
@@ -46,7 +46,7 @@
         </mat-radio-group><br/><br/>
 
         Amabilité :<br/>
-        <mat-radio-group aria-label="amabilite" id="amabilite" formControlName="amabilite" required>
+        <mat-radio-group aria-label="amabilite" id="_amabilite" formControlName="_amabilite" required>
           <mat-radio-button value="1"> 1</mat-radio-button>
           <mat-radio-button value="2"> 2</mat-radio-button>
           <mat-radio-button value="3"> 3</mat-radio-button>
@@ -55,7 +55,7 @@
         </mat-radio-group><br/><br/>
 
         Respect des délais :<br/>
-        <mat-radio-group aria-label="respect des delais" formControlName="respectDelai" id="respectDelai">
+        <mat-radio-group aria-label="respect des delais" formControlName="_respectDelai" id="_respectDelai">
           <mat-radio-button value="1"> 1</mat-radio-button>
           <mat-radio-button value="2"> 2</mat-radio-button>
           <mat-radio-button value="3"> 3</mat-radio-button>
