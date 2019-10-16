@@ -151,7 +151,7 @@ ngOnInit() {
     if (this.prestForm.valid) {
       console.log('Yo.....DataFormPresta are : ' + JSON.stringify(this.prestForm.value));
       const newPresta: Prestataire = new Prestataire();
-      newPresta.raisonsociale = this.raisonSoc.value;
+      newPresta.raisonsociale = this.raisonsociale.value;
       newPresta.telephone = this.tel.value;
       newPresta.idusr = this.idUsr;
       newPresta.idcat = this.categoriechosen.value;
