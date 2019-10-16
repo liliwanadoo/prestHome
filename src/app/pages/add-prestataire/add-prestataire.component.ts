@@ -58,9 +58,6 @@ public categories: Array<Categorie>;
 public get pseudo(): AbstractControl {
   return this.clientForm.controls.pseudo;
 }
-public get villeC(): AbstractControl {
-  return this.clientForm.controls.villeC;
-}
  public get raisonSoc(): AbstractControl {
   return this.prestForm.controls.raisonSoc;
 }
@@ -68,13 +65,16 @@ public get tel(): AbstractControl {
   return this.prestForm.controls.tel;
 }
 public get categoriechosen(): AbstractControl {
-  return this.prestForm.controls.categorie;
+  return this.prestForm.controls.categoriechosen;
 }
 public get description(): AbstractControl {
   return this.prestForm.controls.description;
 }
 public get villeP(): AbstractControl {
   return this.prestForm.controls.villeP;
+}
+public get villeC(): AbstractControl {
+  return this.clientForm.controls.villeC;
 }
 
 ngOnInit() {
@@ -149,12 +149,15 @@ ngOnInit() {
     );
   }
     if (this.prestForm.valid) {
-      console.log('Yo.....DataPresta are : ' + JSON.stringify(this.prestForm.value));
+      console.log('Yo.....DataFormPresta are : ' + JSON.stringify(this.prestForm.value));
       const newPresta: Prestataire = new Prestataire();
       newPresta.raisonsociale = this.raisonSoc.value;
       newPresta.telephone = this.tel.value;
       newPresta.idusr = this.idUsr;
       newPresta.idcat = this.categoriechosen.value;
+      newPresta.idcoord = this.villeP.value;
+      newPresta.description = this.description.value;
+      console.log('Yo.....DataObjectPresta are : ' + JSON.stringify(newPresta));
       // TODO : RAJOUTER LES AUTRES CHAMPS DU PRESTA
       this.http.postPrestataire(newPresta).pipe(first())
       .subscribe((data: HttpResponse<number>) => {
