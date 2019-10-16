@@ -48,8 +48,8 @@ public categories: Array<Categorie>;
 public get pseudo(): AbstractControl {
   return this.clientForm.controls.pseudo;
 }
- public get raisonSoc(): AbstractControl {
-  return this.prestForm.controls.raisonSoc;
+ public get raisonsociale(): AbstractControl {
+  return this.prestForm.controls.raisonsociale;
 }
 public get tel(): AbstractControl {
   return this.prestForm.controls.tel;
@@ -72,7 +72,7 @@ ngOnInit() {
   console.log(this.idUsr);
   this.prestForm = this.formBuilder.group({
     id_usr: this.idUsr,
-    raisonSoc: [
+    raisonsociale: [
       '',
       [Validators.required,
         Validators.minLength(3)]
@@ -120,10 +120,10 @@ public submit() {
   if (this.prestForm.valid) {
     console.log('Yo.....DataPresta are : ' + JSON.stringify(this.prestForm.value));
     const newPresta: Prestataire = new Prestataire();
-    newPresta.raisonsociale = this.raisonSoc.value;
+    newPresta.raisonsociale = this.raisonsociale.value;
     newPresta.telephone = this.tel.value;
     newPresta.idusr = this.idUsr;
-    newPresta.idcat = this.categoriechosen.value;
+    //newPresta.idcat = this.categoriechosen.value;
     // TODO : RAJOUTER LES AUTRES CHAMPS DU PRESTA
     this.http.postPrestataire(newPresta).pipe(first())
     .subscribe((data: HttpResponse<number>) => {
@@ -136,11 +136,8 @@ public submit() {
    // Object.keys(this.prestForm.controls).forEach(key => {
    //   console.log(key + ' [ ' + JSON.stringify(this.prestForm.controls[key].errors) + '] : ' + this.prestForm.controls[key].status);
    // });
-<<<<<<< HEAD
    // this.router.navigate(['']);
-=======
     this.router.navigate(['']);
->>>>>>> myFeature
   // Cherry on cake : put a toast to inform the end categorie...
   } else {
     Object.keys(this.prestForm.controls).forEach(key => {
