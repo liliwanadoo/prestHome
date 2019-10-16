@@ -58,7 +58,20 @@ export class HttpclientService {
     );
   }
 
-     /**
+  /**
+   *  Call the api to get all the prestataires
+   */
+  public getPrests(all: boolean): Observable<any> {
+      const uri = all ? environment.apiRoot + 'PrestLists/' : environment.apiRoot + 'PrestLists/';
+      return this.http.get(
+        uri,
+        {
+          observe: 'response'
+        }
+      );
+    }
+
+  /**
    *  Call the api to get all the cats
    */
   public getCats(): Observable<any> {
