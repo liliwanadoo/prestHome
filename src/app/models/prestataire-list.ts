@@ -59,6 +59,7 @@ private _hydrate(): Promise<Array<Prestataire>> {
        const currentPrestataire: Prestataire = new Prestataire();
        currentPrestataire.id = prests.id;
        currentPrestataire.raisonsociale = prests.raisonsociale;
+       console.log(prests.raisonsociale);
        currentPrestataire.telephone = prests.telephone;
        currentPrestataire.idusr = prests.idusr;
        currentPrestataire.idcoord = prests.idcoord;

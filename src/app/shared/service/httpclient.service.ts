@@ -80,6 +80,19 @@ export class HttpclientService {
       );
     }
 
+   /**
+   *  Call the api to get all the cats
+   */
+  public getCat(): Observable<any> {
+    const uri = environment.apiRoot + 'CatLists/7';
+    return this.http.get(
+      uri,
+      {
+        observe: 'response'
+      }
+    );
+  }
+
   /**
    *  Call the api to get all the cats
    */
