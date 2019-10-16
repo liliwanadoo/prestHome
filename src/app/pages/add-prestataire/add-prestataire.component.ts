@@ -67,7 +67,7 @@ public submit() {
    // Object.keys(this.prestForm.controls).forEach(key => {
    //   console.log(key + ' [ ' + JSON.stringify(this.prestForm.controls[key].errors) + '] : ' + this.prestForm.controls[key].status);
    // });
-     this.router.navigate(['']);
+    this.router.navigate(['']);
   // Cherry on cake : put a toast to inform the end categorie...
   } else {
     Object.keys(this.prestForm.controls).forEach(key => {

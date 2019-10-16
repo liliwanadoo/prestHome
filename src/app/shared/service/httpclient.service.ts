@@ -32,6 +32,15 @@ export class HttpclientService {
     );
   }
 
+  public getNotation(id: number): Observable<any> {
+    return this.http.get(
+      environment.apiRoot + 'NotationLists/' + id,
+      {
+        observe: 'response'
+      }
+    );
+  }
+
    /**
    *  Call the api to get all the coords
    */
