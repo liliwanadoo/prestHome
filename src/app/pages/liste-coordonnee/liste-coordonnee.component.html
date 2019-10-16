@@ -1,4 +1,4 @@
-<p>Elément sélectionné : {{ city._id }}</p>
+<!--<p>Elément sélectionné : {{ city._id }}</p>-->
 <select [(ngModel)]="city">
     <option *ngFor="let coordonnee of coordonnees" [ngValue]="coordonnee">{{coordonnee.ville}} {{coordonnee.cp}}</option>
 </select>
