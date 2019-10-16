@@ -53,12 +53,12 @@ export class HttpclientService {
   }
 
    /**
-   *  Call the api to get all the coords
-   */
+    *  Call the api to get all the coords
+    */
   public getCoords(all: boolean): Observable<any> {
-  //public getCoords(): Observable<any> {
+  // public getCoords(): Observable<any> {
     const uri = all ? environment.apiRoot + 'CoordLists/' : environment.apiRoot + 'CoordLists/used/';
-    //const uri = environment.apiRoot + 'CoordLists/';
+    // const uri = environment.apiRoot + 'CoordLists/';
     return this.http.get(
       uri,
       {

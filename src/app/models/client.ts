@@ -2,7 +2,7 @@ export class Client {
 
   private _id: number;
   private _pseudo: string;
-  private _idusr: number;
+  private _idUsr: number;
   private _idcoord: number;
 
   public get id(): number {
@@ -18,10 +18,10 @@ export class Client {
     this._pseudo = pseudo;
   }
   public get idusr(): number {
-    return this._idusr;
+    return this._idUsr;
   }
   public set idusr(idusr: number) {
-    this._idusr = idusr;
+    this._idUsr = idusr;
   }
   public get idcoord(): number {
     return this._idcoord;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, AbstractControl, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -9,6 +9,8 @@ import { HttpResponse } from '@angular/common/http';
 import { Prestataire } from 'src/app/models/prestataire';
 import { CategorieList } from 'src/app/models/categorie-list';
 import { Categorie } from 'src/app/models/categorie';
+import { Coordonnee } from 'src/app/models/coordonnee';
+import { CoordonneeList } from 'src/app/models/coordonnee-list';
 
 
 @Component({
@@ -35,18 +37,29 @@ export class AddPrestataireComponent implements OnInit {
                private route: ActivatedRoute,
                private router: Router,
                private http: HttpclientService,
-               private collection: CategorieList
+               private collection: CategorieList,
+               private citycollec: CoordonneeList
     ) { }
 /**
  *  Categorie
  */
 public categories: Array<Categorie>;
   public cat: Categorie;
+
+/**
+ *  Coordonnees
+ */
+@Input() all: boolean;
+  public coordonnees: Array<Coordonnee>;
+  public city: Coordonnee = new Coordonnee();
 /**
  * Controls getter
  */
 public get pseudo(): AbstractControl {
   return this.clientForm.controls.pseudo;
+}
+public get villeC(): AbstractControl {
+  return this.clientForm.controls.villeC;
 }
  public get raisonSoc(): AbstractControl {
   return this.prestForm.controls.raisonSoc;
@@ -60,9 +73,20 @@ public get categoriechosen(): AbstractControl {
 public get description(): AbstractControl {
   return this.prestForm.controls.description;
 }
+public get villeP(): AbstractControl {
+  return this.prestForm.controls.villeP;
+}
 
 ngOnInit() {
+  // Coordonnees
+  console.log(this.all ? 'Tous' : 'Restreint');
+  this.citycollec.getCollection(this.all).then((coords: Array<Coordonnee>) => {
+  this.coordonnees = coords;
+  console.log('Liste : ' + JSON.stringify(this.coordonnees));
+});
+  // Categorie
   this.categories = this.collection.getCollection();
+  // Passage de l'ID
   this.sub = this.route
       .queryParams
       .subscribe(params => {
@@ -70,8 +94,8 @@ ngOnInit() {
         this.idUsr = +params['id'];
       });
   console.log(this.idUsr);
+  // Creation de formulaire prestataire
   this.prestForm = this.formBuilder.group({
-    id_usr: this.idUsr,
     raisonSoc: [
       '',
       [Validators.required,
@@ -89,65 +113,68 @@ ngOnInit() {
     description: [
       '',
       [Validators.required]
+    ],
+    villeP: [
+      '',
+      [Validators.required]
     ]
   });
+  // Creation de formulaire Client
   this.clientForm = this.formBuilder.group({
-    id_usr: this.idUsr,
     pseudo: [
       '',
       [Validators.required,
         Validators.minLength(3)]
+    ],
+    villeC: [
+      '',
+      [Validators.required]
     ]
   });
 }
-ngOnDestroy() {
-  this.sub.unsubscribe();
-}
-public submit() {
-  if (this.clientForm.valid) {
+
+  public submit() {
+    if(this.clientForm.valid) {
     console.log('Yo.....Dataclient are : ' + JSON.stringify(this.clientForm.value));
     const newClient: Client = new Client();
     newClient.pseudo = this.pseudo.value;
     newClient.idusr = this.idUsr;
+    newClient.idcoord = this.villeC.value;
     this.http.postClient(newClient).pipe(first())
     .subscribe((data: HttpResponse<number>) => {
-      console.log('you got this babe !' + data);
-    }, (error) => {
-      console.log( 'not working sorry' );
-    }
+        console.log('you got this babe !' + data);
+      }, (error) => {
+        console.log( 'not working sorry' );
+      }
     );
   }
-  if (this.prestForm.valid) {
-    console.log('Yo.....DataPresta are : ' + JSON.stringify(this.prestForm.value));
-    const newPresta: Prestataire = new Prestataire();
-    newPresta.raisonsociale = this.raisonSoc.value;
-    newPresta.telephone = this.tel.value;
-    newPresta.idusr = this.idUsr;
-    newPresta.idcat = this.categoriechosen.value;
-    // TODO : RAJOUTER LES AUTRES CHAMPS DU PRESTA
-    this.http.postPrestataire(newPresta).pipe(first())
-    .subscribe((data: HttpResponse<number>) => {
-      console.log('you got this babe !' + data);
-    }, (error) => {
-      console.log( 'not working sorry' );
+    if (this.prestForm.valid) {
+      console.log('Yo.....DataPresta are : ' + JSON.stringify(this.prestForm.value));
+      const newPresta: Prestataire = new Prestataire();
+      newPresta.raisonsociale = this.raisonSoc.value;
+      newPresta.telephone = this.tel.value;
+      newPresta.idusr = this.idUsr;
+      newPresta.idcat = this.categoriechosen.value;
+      // TODO : RAJOUTER LES AUTRES CHAMPS DU PRESTA
+      this.http.postPrestataire(newPresta).pipe(first())
+      .subscribe((data: HttpResponse<number>) => {
+        console.log('you got this babe !' + data);
+      }, (error) => {
+        console.log( 'not working sorry' );
+      }
+      );
+
+    // Object.keys(this.prestForm.controls).forEach(key => {
+    //   console.log(key + ' [ ' + JSON.stringify(this.prestForm.controls[key].errors) + '] : ' + this.prestForm.controls[key].status);
+    // });
+      this.router.navigate(['']);
+    // Cherry on cake : put a toast to inform the end categorie...
+    } else {
+      Object.keys(this.prestForm.controls).forEach(key => {
+        console.log(key + ' [ ' + JSON.stringify(this.prestForm.controls[key].errors) + '] : ' + this.prestForm.controls[key].status);
+      });
+
     }
-    );
-
-   // Object.keys(this.prestForm.controls).forEach(key => {
-   //   console.log(key + ' [ ' + JSON.stringify(this.prestForm.controls[key].errors) + '] : ' + this.prestForm.controls[key].status);
-   // });
-<<<<<<< HEAD
-   // this.router.navigate(['']);
-=======
-    this.router.navigate(['']);
->>>>>>> myFeature
-  // Cherry on cake : put a toast to inform the end categorie...
-  } else {
-    Object.keys(this.prestForm.controls).forEach(key => {
-      console.log(key + ' [ ' + JSON.stringify(this.prestForm.controls[key].errors) + '] : ' + this.prestForm.controls[key].status);
-    });
-
-  }
 }
 
 }

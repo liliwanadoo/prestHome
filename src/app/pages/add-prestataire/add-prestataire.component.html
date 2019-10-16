@@ -30,6 +30,17 @@
                   </div>
               </mat-form-field>
           </div>
+          <div class="form-group wrap-input2 validate-input" style="text-align:center;">
+            <div class="form-control input2" >
+<!--[(ngModel)]="cat"-->
+            <h3 style="text-align:center;">Quel est la ville dans laquelle vous vivez ?</h3>
+
+            <br><br>
+            <select formControlName="villeC" >
+              <option *ngFor="let coordonnee of coordonnees" [ngValue]="coordonnee.id">{{coordonnee.ville}} {{coordonnee.cp}}</option>
+            </select>
+            </div>
+          </div>
         </form>
 <br><br>
         <!-- FORMULAIRE PRESTATAIRE -->
@@ -67,6 +78,17 @@
             <mat-form-field class="form-control input2">
               <textarea matInput formControlName="description" placeholder="Description de votre activité"></textarea>
             </mat-form-field>
+          </div>
+          <div class="form-group wrap-input2 validate-input" style="text-align:center;">
+            <div class="form-control input2" >
+<!--[(ngModel)]="cat"-->
+            <h3 style="text-align:center;">Quel est la ville dans laquelle vous travaillez ?</h3>
+
+            <br><br>
+            <select formControlName="villeP" >
+              <option *ngFor="let coordonnee of coordonnees" [ngValue]="coordonnee.id">{{coordonnee.ville}} {{coordonnee.cp}}</option>
+            </select>
+            </div>
           </div>
 
         </form>
