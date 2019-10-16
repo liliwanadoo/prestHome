@@ -87,10 +87,23 @@ export class HttpclientService {
     }
 
    /**
-   *  Call the api to get all the cats
+   *  Call the api to get the cat corresponding the the idCat
    */
   public getCat(): Observable<any> {
     const uri = environment.apiRoot + 'CatLists/7';
+    return this.http.get(
+      uri,
+      {
+        observe: 'response'
+      }
+    );
+  }
+
+     /**
+   *  Call the api to get one coord
+   */
+  public getCoord(): Observable<any> {
+    const uri = environment.apiRoot + 'CoordLists/48627';
     return this.http.get(
       uri,
       {
