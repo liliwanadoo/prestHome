@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PrestataireList } from 'src/app/models/prestataire-list';
 
 @Component({
   selector: 'app-liste-prestataire',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListePrestataireComponent implements OnInit {
 
-  constructor() { }
+  constructor(private collection: PrestataireList) { }
 
   ngOnInit() {
   }
