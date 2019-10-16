@@ -1,1 +1,3 @@
-<p>liste-prestataire works!</p>
+<select [(ngModel)]="prest">
+    <option *ngFor="let prestataire of prestataires" [ngValue]="prestataire">{{prestataire.raisonsociale}} {{prestataire.telephone}}</option>
+</select>
