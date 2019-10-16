@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { Client } from 'src/app/models/client';
 import { Prestataire } from 'src/app/models/prestataire';
+import { Notation } from 'src/app/models/notation';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,11 @@ export class HttpclientService {
   public postPrestataire(prestataire: Prestataire): Observable<any> {
     return this.http.post<Prestataire>(
       environment.apiRoot + 'PrestLists/', prestataire);
+  }
+
+  public postNotation(notation: Notation): Observable<any> {
+    return this.http.post<Notation>(
+      environment.apiRoot + 'NotationLists/', notation);
   }
 
   /**

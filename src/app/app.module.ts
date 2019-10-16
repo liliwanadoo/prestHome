@@ -30,14 +30,10 @@ import { ListeCategorieComponent } from './pages/liste-categorie/liste-categorie
     ToolbarComponent,
     SignInComponent,
     AddPrestataireComponent,
-<<<<<<< HEAD
     PrestataireDetailsComponent,
     AddPrestaNoteComponent,
-    ListeCoordonneeComponent
-=======
     ListeCoordonneeComponent,
     ListeCategorieComponent
->>>>>>> 76c516e2096840416aba89cd8eca4c132f606f80
 
   ],
   imports: [
