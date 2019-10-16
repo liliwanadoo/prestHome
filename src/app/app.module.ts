@@ -35,7 +35,6 @@ import { ListePrestataireComponent } from './pages/liste-prestataire/liste-prest
     AddPrestaNoteComponent,
     ListeCoordonneeComponent,
     ListePrestataireComponent,
-    ListeCoordonneeComponent,
     ListeCategorieComponent
 
   ],

@@ -3,6 +3,10 @@ import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/fo
 import { DateValidatorService } from './../../shared/service/date-validator.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Notation } from 'src/app/models/notation';
+import { first } from 'rxjs/operators';
+import { HttpResponse } from '@angular/common/http';
+import { HttpclientService } from 'src/app/shared/service/httpclient.service';
 
 @Component({
   selector: 'app-add-presta-note',
@@ -15,7 +19,8 @@ export class AddPrestaNoteComponent implements OnInit {
     private nf: FormBuilder,
     private dateValidator: DateValidatorService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private http: HttpclientService
   ) { }
 
   public hasErrors = false;
@@ -23,48 +28,66 @@ export class AddPrestaNoteComponent implements OnInit {
 
   ngOnInit() {
     this.noteForm = this.nf.group({
-      date: [
+      _datePrestation: [
         '',
         Validators.required,
         this.dateValidator.isLowerThan.bind(this.dateValidator)
       ],
-      amabilite: [
+      _amabilite: [
         '',
         Validators.required
       ],
-      qualite: [
+      _qualite: [
         '',
         Validators.required
       ],
-      ponctualite: [
+      _ponctualite: [
         '',
         Validators.required
       ],
-      respectDelai: [
+      _respectDelai: [
         ''
       ]
     });
   }
 
-  public get date(): AbstractControl {
-    return this.noteForm.controls.date;
+  public get datePrestation(): AbstractControl {
+    return this.noteForm.controls._datePrestation;
   }
   public get qualite(): AbstractControl {
-    return this.noteForm.controls.qualite;
+    return this.noteForm.controls._qualite;
   }
   public get amabilite(): AbstractControl {
-    return this.noteForm.controls.amabilite;
+    return this.noteForm.controls._amabilite;
   }
   public get ponctualite(): AbstractControl {
-    return this.noteForm.controls.ponctualite;
+    return this.noteForm.controls._ponctualite;
   }
   public get respectDelai(): AbstractControl {
-    return this.noteForm.controls.respectDelai;
+    return this.noteForm.controls._respectDelai;
   }
 
   public submit() {
     if (this.noteForm.valid) {
+      const newNotation: Notation = new Notation();
+      newNotation.amabilite = this.amabilite.value;
+      newNotation.qualite = this.qualite.value;
+      newNotation.ponctualite = this.ponctualite.value;
+      newNotation.respectDetail = this.respectDelai.value;
+      newNotation.datePrestation = this.datePrestation.value;
+      newNotation.idPrestataire = 15;
+      newNotation.idClient = 14;
+      newNotation.id = 1;
+
       console.log('Yo.....Datas are : ' + JSON.stringify(this.noteForm.value));
+      console.log('Yo.....Datas are : ' + JSON.stringify(newNotation));
+
+      this.http.postNotation(newNotation).pipe(first())
+      .subscribe((data: HttpResponse<number>) => {
+        console.log('good' + data);
+      }, (error) => {
+        console.log('not working');
+      });
 
       this.router.navigate(['/details']);
 

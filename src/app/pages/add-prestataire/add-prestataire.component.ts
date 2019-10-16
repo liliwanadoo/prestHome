@@ -58,8 +58,8 @@ public categories: Array<Categorie>;
 public get pseudo(): AbstractControl {
   return this.clientForm.controls.pseudo;
 }
- public get raisonSoc(): AbstractControl {
-  return this.prestForm.controls.raisonSoc;
+ public get raisonsociale(): AbstractControl {
+  return this.prestForm.controls.raisonsociale;
 }
 public get tel(): AbstractControl {
   return this.prestForm.controls.tel;
@@ -96,7 +96,7 @@ ngOnInit() {
   console.log(this.idUsr);
   // Creation de formulaire prestataire
   this.prestForm = this.formBuilder.group({
-    raisonSoc: [
+    raisonsociale: [
       '',
       [Validators.required,
         Validators.minLength(3)]

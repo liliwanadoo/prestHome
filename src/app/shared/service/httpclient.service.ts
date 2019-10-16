@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { Client } from 'src/app/models/client';
 import { Prestataire } from 'src/app/models/prestataire';
+import { Notation } from 'src/app/models/notation';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,11 @@ export class HttpclientService {
   public postPrestataire(prestataire: Prestataire): Observable<any> {
     return this.http.post<Prestataire>(
       environment.apiRoot + 'PrestLists/', prestataire);
+  }
+
+  public postNotation(notation: Notation): Observable<any> {
+    return this.http.post<Notation>(
+      environment.apiRoot + 'NotationLists/', notation);
   }
 
   /**
@@ -79,6 +85,32 @@ export class HttpclientService {
         }
       );
     }
+
+   /**
+   *  Call the api to get the cat corresponding the the idCat
+   */
+  public getCat(): Observable<any> {
+    const uri = environment.apiRoot + 'CatLists/7';
+    return this.http.get(
+      uri,
+      {
+        observe: 'response'
+      }
+    );
+  }
+
+     /**
+   *  Call the api to get one coord
+   */
+  public getCoord(): Observable<any> {
+    const uri = environment.apiRoot + 'CoordLists/48627';
+    return this.http.get(
+      uri,
+      {
+        observe: 'response'
+      }
+    );
+  }
 
   /**
    *  Call the api to get all the cats

@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <body>
 
-	<div class="bg-contact2" style="background-image: url('images/bg-01.jpg');">
-		<div class="container-contact2">
-			<div class="wrap-contact2">
-				<h2 style="text-align:center;">Création d'un profil</h2>
-        <br>
-        <br>
-        <h3 style="text-align:center;">Etes-vous client, prestataire ou les deux ?</h3>
-          <mat-radio-group
-            aria-labelledby="example-radio-group-label"
-            class="example-radio-group"
-            [(ngModel)]="profilavailable">
-            <mat-radio-button class="example-radio-button" *ngFor="let profil of profilchoices" [value]="profil">
-              {{profil}}
-            </mat-radio-button>
-          </mat-radio-group>
+    <div class="bg-contact2" style="background-image: url('images/bg-01.jpg');">
+        <div class="container-contact2">
+            <div class="wrap-contact2">
+                <h2 style="text-align:center;">Création d'un profil</h2>
+                <br>
+                <br>
+                <h3 style="text-align:center;">Etes-vous client, prestataire ou les deux ?</h3>
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="profilavailable">
+                    <mat-radio-button class="example-radio-button" *ngFor="let profil of profilchoices" [value]="profil">
+                        {{profil}}
+                    </mat-radio-button>
+                </mat-radio-group>
 
 
         <!-- FORMULAIRE CLIENT -->
@@ -52,8 +50,8 @@
         <h3 style="text-align:center;">Informations du profil Prestataire</h3>
           <div class="form-group wrap-input2 validate-input">
               <mat-form-field class=" input2">
-                  <input  matInput type="text" id="raisonSoc" formControlName="raisonSoc" placeholder="Quelle est votre raison sociale ?" size="530">
-                  <div class="errorPlaceHolder" *ngIf="raisonSoc.errors && raisonSoc.touched">
+                  <input  matInput type="text" id="raisonsociale" formControlName="raisonsociale" placeholder="Quelle est votre raison sociale ?" size="530">
+                  <div class="errorPlaceHolder" *ngIf="raisonsociale.errors && raisonsociale.touched">
                       La raison sociale doit faire au moins 3 caractères
                   </div>
               </mat-form-field>
@@ -99,14 +97,7 @@
             </div>
           </div>
 
-        </form>
-        <div style="text-align:center;">
-    <button mat-flat-button color="primary" type="submit" (click)="submit()"> Remplir mon profil </button><br/><br/>
     </div>
-      </div>
-    </div>
-
-	</div>
 
 
 
@@ -114,5 +105,5 @@
 
 
 </body>
-</html>
 
+</html>
