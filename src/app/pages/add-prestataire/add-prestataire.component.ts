@@ -7,6 +7,8 @@ import { HttpclientService } from 'src/app/shared/service/httpclient.service';
 import { first } from 'rxjs/operators';
 import { HttpResponse } from '@angular/common/http';
 import { Prestataire } from 'src/app/models/prestataire';
+import { CategorieList } from 'src/app/models/categorie-list';
+import { Categorie } from 'src/app/models/categorie';
 
 
 @Component({
@@ -32,9 +34,14 @@ export class AddPrestataireComponent implements OnInit {
    constructor(private formBuilder: FormBuilder,
                private route: ActivatedRoute,
                private router: Router,
-               private http: HttpclientService
+               private http: HttpclientService,
+               private collection: CategorieList
     ) { }
-
+/**
+ *  Categorie
+ */
+public categories: Array<Categorie>;
+  public cat: Categorie;
 /**
  * Controls getter
  */
@@ -47,8 +54,15 @@ public get pseudo(): AbstractControl {
 public get tel(): AbstractControl {
   return this.prestForm.controls.tel;
 }
+public get categoriechosen(): AbstractControl {
+  return this.prestForm.controls.categorie;
+}
+public get description(): AbstractControl {
+  return this.prestForm.controls.description;
+}
 
 ngOnInit() {
+  this.categories = this.collection.getCollection();
   this.sub = this.route
       .queryParams
       .subscribe(params => {
@@ -67,6 +81,14 @@ ngOnInit() {
       '',
       [Validators.required,
         Validators.minLength(3)]
+    ],
+    categoriechosen: [
+      '',
+      [Validators.required]
+    ],
+    description: [
+      '',
+      [Validators.required]
     ]
   });
   this.clientForm = this.formBuilder.group({
@@ -101,6 +123,7 @@ public submit() {
     newPresta.raisonsociale = this.raisonSoc.value;
     newPresta.telephone = this.tel.value;
     newPresta.idusr = this.idUsr;
+    newPresta.idcat = this.categoriechosen.value;
     // TODO : RAJOUTER LES AUTRES CHAMPS DU PRESTA
     this.http.postPrestataire(newPresta).pipe(first())
     .subscribe((data: HttpResponse<number>) => {

@@ -1,4 +1,4 @@
-<p>Elément sélectionné : {{ cat.id }}</p>
+<!--<p>Elément sélectionné : {{ cat.id }}</p>-->
 
 <select [(ngModel)]="cat">
     <option *ngFor="let categorie of categories" [ngValue]="categorie">{{categorie.libelle}}</option>
