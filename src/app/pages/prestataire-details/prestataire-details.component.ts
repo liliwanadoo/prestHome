@@ -12,26 +12,23 @@ import { ToastrService } from 'ngx-toastr';
 export class PrestataireDetailsComponent implements OnInit {
   constructor(
     private router: Router,
-    private toastr: ToastrService,
+    private toastr: ToastrService
   ) { }
 
-  private id_UsrClient: number = 3;
-  private id_UsrPresta: number = 3;
+  private idUsrClient = 2;
+  private idUsrPresta = 3;
 
-
+  ngOnInit() { }
 
   public userStatusVerif() {
-    if (this.id_UsrClient !== this.id_UsrPresta && this.id_UsrClient !== null) {
+    if (this.idUsrClient !== this.idUsrPresta && this.idUsrClient !== null) {
       this.router.navigate(['/notation']);
-    }
-    else {
+    } else {
       this.toastr.error('Votre statut ne vous permets pas de noter ce prestataire', 'ERREUR', {
         positionClass: 'toast-bottom-center'});
     }
   }
 
-  ngOnInit() {
 
-  }
 
 }

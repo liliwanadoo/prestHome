@@ -31,15 +31,12 @@ import { ListePrestataireComponent } from './pages/liste-prestataire/liste-prest
     ToolbarComponent,
     SignInComponent,
     AddPrestataireComponent,
-<<<<<<< HEAD
     PrestataireDetailsComponent,
     AddPrestaNoteComponent,
     ListeCoordonneeComponent,
-    ListePrestataireComponent
-=======
+    ListePrestataireComponent,
     ListeCoordonneeComponent,
     ListeCategorieComponent
->>>>>>> 76c516e2096840416aba89cd8eca4c132f606f80
 
   ],
   imports: [

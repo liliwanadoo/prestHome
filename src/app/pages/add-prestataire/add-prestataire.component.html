@@ -52,6 +52,22 @@
                   </div>
               </mat-form-field>
           </div>
+          <div class="form-group wrap-input2 validate-input" style="text-align:center;">
+            <div class="form-control input2" >
+<!--[(ngModel)]="cat"-->
+            <h3 style="text-align:center;">Quel est la catégorie des services que vous proposez ?</h3>
+
+            <br><br>
+            <select formControlName="categoriechosen" >
+              <option *ngFor="let categorie of categories" [ngValue]="categorie.id">{{categorie.libelle}}</option>
+            </select>
+            </div>
+          </div>
+          <div class="form-group wrap-input2 validate-input">
+            <mat-form-field class="form-control input2">
+              <textarea matInput formControlName="description" placeholder="Description de votre activité"></textarea>
+            </mat-form-field>
+          </div>
 
         </form>
         <div style="text-align:center;">
