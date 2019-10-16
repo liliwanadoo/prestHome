@@ -4,7 +4,7 @@ export class Prestataire {
   private _telephone: string;
   private _idusr: number;
   private _idcoord: number;
-  private _iddetail: number;
+  private _idcat: number;
   private _idnotation: number[];
 
   public get id(): number {
@@ -37,11 +37,11 @@ export class Prestataire {
   public set idcoord(idcoord: number) {
     this._idcoord = idcoord;
   }
-  public get iddetail(): number {
-    return this._iddetail;
+  public get idcat(): number {
+    return this._idcat;
   }
-  public set iddetail(iddetail: number) {
-    this._iddetail = iddetail;
+  public set idcat(idcat: number) {
+    this._idcat = idcat;
   }
   public get idnotations(): number[] {
     return this._idnotation;
