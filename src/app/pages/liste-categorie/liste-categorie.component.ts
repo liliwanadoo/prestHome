@@ -9,7 +9,7 @@ import { CategorieList } from 'src/app/models/categorie-list';
 })
 export class ListeCategorieComponent implements OnInit {
   public categories: Array<Categorie>;
-  public cat: Categorie;
+  public cat: Categorie = new Categorie();
 
   constructor(private collection: CategorieList) { }
   ngOnInit(): void {
