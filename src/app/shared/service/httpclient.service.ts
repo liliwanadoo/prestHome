@@ -43,6 +43,15 @@ export class HttpclientService {
     );
   }
 
+  public getNotation(id: number): Observable<any> {
+    return this.http.get(
+      environment.apiRoot + 'NotationLists/' + id,
+      {
+        observe: 'response'
+      }
+    );
+  }
+
    /**
    *  Call the api to get all the coords
    */
@@ -58,7 +67,20 @@ export class HttpclientService {
     );
   }
 
-     /**
+  /**
+   *  Call the api to get all the prestataires
+   */
+  public getPrests(all: boolean): Observable<any> {
+      const uri = all ? environment.apiRoot + 'PrestLists/' : environment.apiRoot + 'PrestLists/';
+      return this.http.get(
+        uri,
+        {
+          observe: 'response'
+        }
+      );
+    }
+
+  /**
    *  Call the api to get all the cats
    */
   public getCats(): Observable<any> {

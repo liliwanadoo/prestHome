@@ -23,16 +23,21 @@
 
         <h3> Vos notations </h3><br/>
         Qualité :<br/>
-        <mat-radio-group aria-label="qualite" required>
+        <mat-radio-group aria-label="qualite" id="qualite" formControlName="qualite" required>
           <mat-radio-button value="1"> 1</mat-radio-button>
           <mat-radio-button value="2"> 2</mat-radio-button>
           <mat-radio-button value="3"> 3</mat-radio-button>
           <mat-radio-button value="4"> 4</mat-radio-button>
           <mat-radio-button value="5"> 5</mat-radio-button>
+          <div id="error" *ngIf ="qualite.errors && qualite.touched">
+              <p *ngIf = "qualite.errors.required">
+                La date de la prestation est obligatoire
+              </p>
+        </div>
         </mat-radio-group><br/><br/>
 
         Poncutalité :<br/>
-        <mat-radio-group aria-label="poncutalite" required>
+        <mat-radio-group aria-label="poncutalite" id="ponctualite" formControlName="ponctualite" required>
           <mat-radio-button value="1"> 1</mat-radio-button>
           <mat-radio-button value="2"> 2</mat-radio-button>
           <mat-radio-button value="3"> 3</mat-radio-button>
@@ -41,7 +46,7 @@
         </mat-radio-group><br/><br/>
 
         Amabilité :<br/>
-        <mat-radio-group aria-label="amabilite" required>
+        <mat-radio-group aria-label="amabilite" id="amabilite" formControlName="amabilite" required>
           <mat-radio-button value="1"> 1</mat-radio-button>
           <mat-radio-button value="2"> 2</mat-radio-button>
           <mat-radio-button value="3"> 3</mat-radio-button>
@@ -50,7 +55,7 @@
         </mat-radio-group><br/><br/>
 
         Respect des délais :<br/>
-        <mat-radio-group aria-label="respect des delais">
+        <mat-radio-group aria-label="respect des delais" formControlName="respectDelai" id="respectDelai">
           <mat-radio-button value="1"> 1</mat-radio-button>
           <mat-radio-button value="2"> 2</mat-radio-button>
           <mat-radio-button value="3"> 3</mat-radio-button>
@@ -59,7 +64,7 @@
           <mat-radio-button value="null"> Non approprié au type de prestation</mat-radio-button>
         </mat-radio-group><br/><br/>
 
-      <button> Noter une prestation </button><br/><br/>
+      <button (click)="submit()" [disabled] = "noteForm.invalid"> Noter une prestation </button><br/><br/>
       <button [routerLink]="['/details']" > Annuler </button><br/><br/>
   </form>
 </body>

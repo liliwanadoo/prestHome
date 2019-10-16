@@ -22,6 +22,7 @@ import { AddPrestaNoteComponent } from './pages/add-presta-note/add-presta-note.
 import { ListeCoordonneeComponent } from './pages/liste-coordonnee/liste-coordonnee.component';
 import { ToastrService, ToastrModule } from 'ngx-toastr';
 import { ListeCategorieComponent } from './pages/liste-categorie/liste-categorie.component';
+import { ListePrestataireComponent } from './pages/liste-prestataire/liste-prestataire.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,8 @@ import { ListeCategorieComponent } from './pages/liste-categorie/liste-categorie
     AddPrestataireComponent,
     PrestataireDetailsComponent,
     AddPrestaNoteComponent,
+    ListeCoordonneeComponent,
+    ListePrestataireComponent,
     ListeCoordonneeComponent,
     ListeCategorieComponent
 
