@@ -2,7 +2,7 @@ export class Notation {
   private _amabilite: number;
   private _qualite: number;
   private _ponctualite: number;
-  private _respectDetail: number;
+  private _respectDelai: number;
   private _datePrestation: Date;
   private _photo: string;
   private _idPrestataire: number;
@@ -53,12 +53,12 @@ export class Notation {
     this._ponctualite = value;
   }
 
-  public get respectDetail(): number {
-    return this._respectDetail;
+  public get respectDelai(): number {
+    return this._respectDelai;
   }
 
-  public set respectDetail(value: number){
-    this._respectDetail = value;
+  public set respectDelai(value: number){
+    this._respectDelai = value;
   }
   public get datePrestation(): Date {
     return this._datePrestation;

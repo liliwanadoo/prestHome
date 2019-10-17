@@ -5,6 +5,7 @@
             <p>Un projet qui envoie du lourd...</p>
         </div><br/>
     </header>
+
     <app-liste-prestataire all="true"></app-liste-prestataire>
     <app-liste-coordonnee all="false"></app-liste-coordonnee>
     <app-liste-categorie></app-liste-categorie>
@@ -12,58 +13,6 @@
         <a role='button' [routerLink]="['sign']">Inscription / Connexion</a>
     </div><br/><br/>
 
-    <form [formGroup]="searchForm">
-        <div class="d-flex ">
-            <mat-form-field>
-                <input matInput type="text" placeholder="Ville" class="form-control" id="ville" formControlName="ville" required>
-                <div id="error" class="errorPlaceHolder" *ngIf="ville.errors && ville.touched">
-                    <p *ngIf="ville.errors.required">
-                        La ville est requise
-                    </p>
-                </div>
-            </mat-form-field>
-
-            <mat-form-field>
-                <input matInput type="text" placeholder="Code Postal" class="form-control" id="cp" formControlName="cp" required>
-                <div id="error" class="errorPlaceHolder" *ngIf="cp.errors && cp.touched">
-                    <p *ngIf="cp.errors.required">
-                        Le code postal est requis
-                    </p>
-                    <p *ngIf="cp.errors.minlength">
-                        Le code postal doit contenir 5 chiffres
-                    </p>
-                    <p *ngIf="cp.errors.maxlength">
-                        Le code postal doit contenir 5 chiffres
-                    </p>
-                    <p *ngIf="cp.errors.pattern">
-                        Le code postal ne doit comporter que des chiffres
-                    </p>
-                </div>
-            </mat-form-field>
-
-            <mat-form-field>
-                <mat-select placeholder="Catégories :" id="categorie">
-                    <mat-option value="catlist">CatListHere</mat-option>
-
-                </mat-select>
-            </mat-form-field>
-            <button>Rechercher</button>
-            <br/><br/>
-        </div>
-    </form>
-    <form [formGroup]="searchForm">
-        <div class="d-flex ">
-            <mat-form-field>
-                <input matInput type="text" placeholder="Ville" class="form-control" id="ville" formControlName="ville" required>
-                <div id="error" class="errorPlaceHolder" *ngIf="ville.errors && ville.touched">
-                    <p *ngIf="ville.errors.required">
-                        La ville est requise
-                    </p>
-                    <p *ngIf="ville.errors.pattern">
-                        Cette ville n'est pas valide
-                    </p>
-                </div>
-            </mat-form-field>
 
 </body>
 <footer>
