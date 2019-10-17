@@ -59,12 +59,12 @@ export class HttpclientService {
   }
 
    /**
-   *  Call the api to get all the coords
-   */
+    *  Call the api to get all the coords
+    */
   public getCoords(all: boolean): Observable<any> {
-  //public getCoords(): Observable<any> {
+  // public getCoords(): Observable<any> {
     const uri = all ? environment.apiRoot + 'CoordLists/' : environment.apiRoot + 'CoordLists/used/';
-    //const uri = environment.apiRoot + 'CoordLists/';
+    // const uri = environment.apiRoot + 'CoordLists/';
     return this.http.get(
       uri,
       {
@@ -85,6 +85,32 @@ export class HttpclientService {
         }
       );
     }
+
+   /**
+   *  Call the api to get the cat corresponding the the idCat
+   */
+  public getCat(id: number): Observable<any> {
+    const uri = environment.apiRoot + 'CatLists/' + id;
+    return this.http.get(
+      uri,
+      {
+        observe: 'response'
+      }
+    );
+  }
+
+     /**
+   *  Call the api to get one coord
+   */
+  public getCoord(id: number): Observable<any> {
+    const uri = environment.apiRoot + 'CoordLists/' + id;
+    return this.http.get(
+      uri,
+      {
+        observe: 'response'
+      }
+    );
+  }
 
   /**
    *  Call the api to get all the cats

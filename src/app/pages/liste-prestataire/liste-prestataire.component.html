@@ -1,3 +1,19 @@
-<select [(ngModel)]="prest">
-    <option *ngFor="let prestataire of prestataires" [ngValue]="prestataire">{{prestataire.raisonsociale}} {{prestataire.telephone}}</option>
-</select>
+
+<!-- TODO : dynamiser le choix de la categorie et de la ville pour afficher les prestas correspondants-->
+<div *ngFor="let categorie of categories"><div class="form-group wrap-input2 validate-input" style="text-align:center;">
+  <div class=" input2" >
+    <h3>Quel est la catégorie des services que vous proposez ?</h3>
+    <br><br>
+    <mat-form-field class=" input2">
+    <mat-select>
+      <mat-option *ngFor="let categorie of categories" [value]="categorie">{{categorie.libelle}}</mat-option>
+    </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+<div>
+<strong>Voici les prestataires de la catégorie : {{categorie.libelle}} pour la ville : {{coordonnee.ville}} (Code Postal : {{coordonnee.cp}})</strong>
+</div>
+<div *ngFor="let prestataire of prestataires">{{prestataire.raisonsociale}} {{prestataire.telephone}}
+</div>
+</div>
