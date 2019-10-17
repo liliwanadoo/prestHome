@@ -118,13 +118,20 @@
             <p>Un projet qui envoie du lourd...</p>
         </div><br/>
     </header>
+
+
+    <app-liste-prestataire all="true"></app-liste-prestataire>
+    <app-liste-coordonnee all="false"></app-liste-coordonnee>
+    <app-liste-categorie></app-liste-categorie>
+
     <app-recherche-prestataire></app-recherche-prestataire>
     <app-liste-prestataire allPrest="true"></app-liste-prestataire>
+
     <div id="signInLogin">
         <a role='button' [routerLink]="['sign']">Inscription / Connexion</a>
     </div><br/><br/>
 
-    <!--     <form [formGroup]="searchForm">
+     <form [formGroup]="searchForm">
         <div class="d-flex ">
             <mat-form-field>
                 <input matInput type="text" placeholder="Ville" class="form-control" id="ville" formControlName="ville" required>

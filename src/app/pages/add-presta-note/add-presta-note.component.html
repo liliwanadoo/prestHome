@@ -8,13 +8,13 @@
       <h3>Date de la prestation :</h3><br/>
       <mat-form-field>
         <input matInput type="date" placeholder="Date de la prestation" class="form-control" id="_datePrestation" formControlName="_datePrestation" required>
-        <div id="error" class="errorPlaceHolder" *ngIf ="date.errors && date.touched">
-              <p *ngIf = "date.errors.required">
+        <div id="error" class="errorPlaceHolder" *ngIf ="datePrestation.errors && datePrestation.touched">
+              <p *ngIf = "datePrestation.errors.required">
                 La date de la prestation est obligatoire
               </p>
         </div>
-        <div id="error" class="errorPlaceHolder" *ngIf ="date.errors && date.touched">
-              <p *ngIf = "!date.errors.isLowerThan">
+        <div id="error" class="errorPlaceHolder" *ngIf ="datePrestation.errors && datePrestation.touched">
+              <p *ngIf = "!datePrestation.errors.isLowerThan">
                 La date de la prestation ne peut pas être supérieure à la date du jour
               </p>
         </div>
@@ -29,11 +29,6 @@
           <mat-radio-button value="3"> 3</mat-radio-button>
           <mat-radio-button value="4"> 4</mat-radio-button>
           <mat-radio-button value="5"> 5</mat-radio-button>
-          <div id="error" *ngIf ="qualite.errors && qualite.touched">
-              <p *ngIf = "qualite.errors.required">
-                La date de la prestation est obligatoire
-              </p>
-        </div>
         </mat-radio-group><br/><br/>
 
         Poncutalité :<br/>
