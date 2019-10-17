@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<body>
+
 
     <div class="bg-contact2" style="background-image: url('images/bg-01.jpg');">
         <div class="container-contact2">
@@ -65,19 +65,7 @@
                   </div>
               </mat-form-field>
           </div>
-          <div class="form-group wrap-input2 validate-input" style="text-align:center;">
-            <div class=" input2" >
-<!--[(ngModel)]="cat"-->
-            <h3 style="text-align:center;">Quel est la catégorie des services que vous proposez ?</h3>
-
-            <br><br>
-            <mat-form-field class=" input2">
-            <mat-select formControlName="categoriechosen" >
-              <mat-option *ngFor="let categorie of categories" [value]="categorie.id">{{categorie.libelle}}</mat-option>
-            </mat-select>
-            </mat-form-field>
-            </div>
-          </div>
+          
           <div class="form-group wrap-input2 validate-input">
             <mat-form-field class=" input2">
               <textarea matInput formControlName="description" placeholder="Description de votre activité"></textarea>
@@ -97,13 +85,5 @@
             </div>
           </div>
 
-    </div>
 
 
-
-
-
-
-</body>
-
-</html>

@@ -51,14 +51,14 @@ export class MaCategorie {
        this.http.getCat().subscribe((res: HttpResponse<any>) => {
        const cats: any = res.body;
 
-        const currentCat: Categorie = new Categorie();
-        currentCat.id = cats.id;
-        currentCat.libelle = cats.libelle;
-        console.log(currentCat.id + ' ' + currentCat.libelle);
-        this._categories = currentCat;
+       const currentCat: Categorie = new Categorie();
+       currentCat.id = cats.id;
+       currentCat.libelle = cats.libelle;
+       console.log(currentCat.id + ' ' + currentCat.libelle);
+       this._categories = currentCat;
 
-      resolve(this._categories);
-  });
- });
+       resolve(this._categories);
+      });
+     });
     }
 }
