@@ -11,9 +11,9 @@
 
   <form [formGroup]="userForm" class="contact2-form validate-form">
 
-    <div class="form-group wrap-input2 validate-input">
+    <div class=" wrap-input2 validate-input">
       <!--<label for="email">Votre email:</label>-->
-      <mat-form-field class="form-control input2">
+      <mat-form-field class=" input2">
       <input matInput type="email" placeholder="Entrez votre email ici" id="email" formControlName="email" required>
         <div id="error" class="errorPlaceHolder" *ngIf ="email.errors && email.touched">
             <p *ngIf = "email.errors.required">
@@ -29,9 +29,9 @@
         </mat-form-field>
     </div>
 
-    <div class="form-group wrap-input2 validate-input">
+    <div class="wrap-input2 validate-input">
       <!--<label for="pwd">Votre mot de passe:</label>-->
-      <mat-form-field class="form-control input2" >
+      <mat-form-field class=" input2" >
       <input matInput type="password" placeholder="Entrez votre mot de passe ici" id="pwd" formControlName="password" required>
         <div id="error" class="errorPlaceHolder" *ngIf ="password.errors && password.touched">
             <p *ngIf = "password.errors.required">
@@ -45,9 +45,10 @@
     </div>
 
     <div style="text-align:center;" class="form-group form-check">
-      <label  class="form-check-label">
-        <input class="form-check-input" type="checkbox"> Se souvenir de moi
-      </label>
+      <mat-checkbox>Se souvenir de moi</mat-checkbox>
+      <!--<input class="form-check-input" type="checkbox"><label  class="form-check-label">
+
+      </label>-->
     </div>
     <br>
     <div style="text-align:center;">

@@ -5,6 +5,7 @@ export class Prestataire {
   private _idusr: number;
   private _idcoord: number;
   private _idcat: number;
+  private _description: string;
   private _idnotation: number[];
 
   public get id(): number {
@@ -42,6 +43,12 @@ export class Prestataire {
   }
   public set idcat(idcat: number) {
     this._idcat = idcat;
+  }
+  public get description(): string {
+    return this._description;
+  }
+  public set description(description: string) {
+    this._description = description;
   }
   public get idnotations(): number[] {
     return this._idnotation;
