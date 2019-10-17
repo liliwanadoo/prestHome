@@ -36,13 +36,9 @@ import { RecherchePrestataireComponent } from './pages/recherche-prestataire/rec
     AddPrestaNoteComponent,
     ListeCoordonneeComponent,
     ListePrestataireComponent,
-<<<<<<< HEAD
-    ListeCategorieComponent
-=======
     ListeCoordonneeComponent,
     ListeCategorieComponent,
     RecherchePrestataireComponent
->>>>>>> cityFormFeature
 
   ],
   imports: [

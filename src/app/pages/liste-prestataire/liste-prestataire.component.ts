@@ -15,33 +15,21 @@ import { CategorieList } from 'src/app/models/categorie-list';
 export class ListePrestataireComponent implements OnInit {
   @Input() allPrest: boolean;
   public prestataires: Array<Prestataire>;
-  //public categorie: Categorie;
+  public categorie: Categorie;
   public coordonnee: Coordonnee;
   public prest: Prestataire = new Prestataire();
-<<<<<<< HEAD
+
   public id = 7;
   public idVilleCp = 48627;
-=======
-  public categories: Categorie[];
->>>>>>> 72ad0f62d3b7ef8bb861e636ffb71dec5a186a62
-
-
   constructor(private collection: PrestataireList,
               private maCategorie: MaCategorie,
               private maVilleCP: MaVilleCP,
               private catcollection: CategorieList) { }
 
   ngOnInit() {
-<<<<<<< HEAD
     this.maCategorie.getCollection(this.id).then((cats: Categorie) => {
       this.categorie = cats;
     });
-=======
-//    this.maCategorie.getCollection().then((cats: Categorie) => {
-//      this.categorie = cats;
-//    });
-this.categories  = this.catcollection.getCollection();
->>>>>>> 72ad0f62d3b7ef8bb861e636ffb71dec5a186a62
 
     this.maVilleCP.getCollection(this.idVilleCp).then((coord: Coordonnee) => {
       this.coordonnee = coord;
