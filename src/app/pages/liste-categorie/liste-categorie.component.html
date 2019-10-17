@@ -1,5 +1,5 @@
 <p>Catégorie sélectionnée : {{ cat.id }}</p>
 
-<select [(ngModel)]="cat">
-    <option *ngFor="let categorie of categories" [ngValue]="categorie">{{categorie.libelle}}</option>
-</select>
+<mat-select [(ngModel)]="cat">
+    <mat-option *ngFor="let categorie of categories" [value]="categorie">{{categorie.libelle}}</mat-option>
+</mat-select>
