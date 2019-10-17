@@ -7,23 +7,6 @@
 
 <div id="wrapper">
 
-<<<<<<< HEAD
-    <!-- Banner -->
-    <section id="intro" class="main">
-        <span class="icon fa-diamond major"></span>
-        <h2>Presta Find</h2>
-        <p>Notre plateforme vous permet de chercher des prestataires de service aux alentours de chez vous.<br> Une envie de cuisine, des besoins de peinture ou de plomberie ?<br> Vous trouverez les prestataires qu'il vous faut, près de chez vous !</p>
-        <ul class="actions">
-            <li><a class="button big" [routerLink]="['sign']">Inscrivez-vous !</a></li>
-        </ul>
-    </section>
-
-    <!-- Catégories -->
-    <section id="cta" class="main special">
-        <h2>Liste de nos catégories de services</h2>
-        <app-liste-coordonnee all="false"></app-liste-coordonnee>
-        <!--<p>Phasellus ac augue ac magna auctor tempus proin<br />
-=======
 				<!-- Banner -->
 					<section id="intro" class="main">
 						<span class="icon fa-diamond major"></span>
@@ -41,7 +24,6 @@
 						<h2>Liste de nos catégories de services</h2>
             <app-liste-categorie></app-liste-categorie>
 						<!--<p>Phasellus ac augue ac magna auctor tempus proin<br />
->>>>>>> 0f8773f69d04401aca5e8485efd73a3b9b387ebc
 						accumsan lacus a nibh commodo in pellentesque dui<br />
 						in hac habitasse platea dictumst.</p>
 						<ul class="actions">
@@ -58,6 +40,7 @@
 						<ul class="actions">
 							<li><a href="#" class="button big">Get Started</a></li>
 						</ul>-->
+            <app-maps></app-maps>
     </section>
 
     <!-- Items -->
@@ -192,14 +175,12 @@
                     </p>
                 </div>
             </mat-form-field>
-<<<<<<< HEAD
 
-<<<<<<< HEAD
 </body>
 <footer>
     <app-toolbar></app-toolbar>
 </footer>
-=======
+
             <mat-form-field>
                 <input matInput type="text" placeholder="Code Postal" class="form-control" id="cp" formControlName="cp" required>
                 <div id="error" class="errorPlaceHolder" *ngIf="cp.errors && cp.touched">
@@ -239,6 +220,3 @@
         </div>
     </form>
 </body> -->
-<footer>
-    <app-toolbar></app-toolbar>
-</footer>
