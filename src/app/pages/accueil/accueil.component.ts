@@ -8,36 +8,40 @@ import { FormGroup, FormControl, AbstractControl, FormBuilder, Validators } from
 })
 export class AccueilComponent implements OnInit {
 
-  public hasErrors = false;
-  searchForm: FormGroup;
+  // public hasErrors = false;
+  // searchForm: FormGroup;
 
-  public get ville(): AbstractControl {
-    return this.searchForm.controls.ville;
-  }
+  // public get ville(): AbstractControl {
+  //   return this.searchForm.controls.ville;
+  // }
 
-  public get cp(): AbstractControl {
-    return this.searchForm.controls.cp;
-  }
-
+  // public get cp(): AbstractControl {
+  //   return this.searchForm.controls.cp;
+  // }
 
   constructor(
-        private sf: FormBuilder,
-    ) {}
+    private sf: FormBuilder,
+) {}
+  // constructor(
+  //       private sf: FormBuilder,
+  //   ) {}
 
   ngOnInit() {
-    this.searchForm = this.sf.group({
-      ville: [
-        '',
-        Validators.required
-      ],
-      cp: [
-        '',
-        [Validators.minLength(5),
-        Validators.maxLength(5),
-        Validators.pattern('[0-9]{5}'),
-        Validators.required]
-      ]
-    });
   }
+  // ngOnInit() {
+  //   this.searchForm = this.sf.group({
+  //     ville: [
+  //       '',
+  //       Validators.required
+  //     ],
+  //     cp: [
+  //       '',
+  //       [Validators.minLength(5),
+  //       Validators.maxLength(5),
+  //       Validators.pattern('[0-9]{5}'),
+  //       Validators.required]
+  //     ]
+  //   });
+  // }
 
 }

@@ -13,30 +13,29 @@ import { CategorieList } from 'src/app/models/categorie-list';
   styleUrls: ['./liste-prestataire.component.scss']
 })
 export class ListePrestataireComponent implements OnInit {
-  @Input() all: boolean;
+  @Input() allPrest: boolean;
   public prestataires: Array<Prestataire>;
-  //public categorie: Categorie;
+  public categorie: Categorie;
   public coordonnee: Coordonnee;
   public prest: Prestataire = new Prestataire();
-  public categories: Categorie[];
 
-
+  public id = 7;
+  public idVilleCp = 48627;
   constructor(private collection: PrestataireList,
               private maCategorie: MaCategorie,
               private maVilleCP: MaVilleCP,
               private catcollection: CategorieList) { }
 
   ngOnInit() {
-//    this.maCategorie.getCollection().then((cats: Categorie) => {
-//      this.categorie = cats;
-//    });
-this.categories  = this.catcollection.getCollection();
+    this.maCategorie.getCollection(this.id).then((cats: Categorie) => {
+      this.categorie = cats;
+    });
 
-    this.maVilleCP.getCollection().then((coord: Coordonnee) => {
+    this.maVilleCP.getCollection(this.idVilleCp).then((coord: Coordonnee) => {
       this.coordonnee = coord;
     });
 
-    this.collection.getCollection(this.all).then((prests: Array<Prestataire>) => {
+    this.collection.getCollection(this.allPrest).then((prests: Array<Prestataire>) => {
       this.prestataires = prests;
    });
   }

@@ -1,4 +1,4 @@
-<!--<p>Elément sélectionné : {{ cat.id }}</p>-->
+<p>Catégorie sélectionnée : {{ cat.id }}</p>
 
 <mat-select [(ngModel)]="cat">
     <mat-option *ngFor="let categorie of categories" [value]="categorie">{{categorie.libelle}}</mat-option>
