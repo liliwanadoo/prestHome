@@ -23,6 +23,7 @@ import { ListeCoordonneeComponent } from './pages/liste-coordonnee/liste-coordon
 import { ToastrService, ToastrModule } from 'ngx-toastr';
 import { ListeCategorieComponent } from './pages/liste-categorie/liste-categorie.component';
 import { ListePrestataireComponent } from './pages/liste-prestataire/liste-prestataire.component';
+import { RecherchePrestataireComponent } from './pages/recherche-prestataire/recherche-prestataire.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ListePrestataireComponent } from './pages/liste-prestataire/liste-prest
     ListeCoordonneeComponent,
     ListePrestataireComponent,
     ListeCoordonneeComponent,
-    ListeCategorieComponent
+    ListeCategorieComponent,
+    RecherchePrestataireComponent
 
   ],
   imports: [

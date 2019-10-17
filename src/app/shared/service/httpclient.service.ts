@@ -83,8 +83,8 @@ export class HttpclientService {
    /**
    *  Call the api to get the cat corresponding the the idCat
    */
-  public getCat(): Observable<any> {
-    const uri = environment.apiRoot + 'CatLists/7';
+  public getCat(id: number): Observable<any> {
+    const uri = environment.apiRoot + 'CatLists/' + id;
     return this.http.get(
       uri,
       {
@@ -96,8 +96,8 @@ export class HttpclientService {
      /**
    *  Call the api to get one coord
    */
-  public getCoord(): Observable<any> {
-    const uri = environment.apiRoot + 'CoordLists/48627';
+  public getCoord(id: number): Observable<any> {
+    const uri = environment.apiRoot + 'CoordLists/' + id;
     return this.http.get(
       uri,
       {
