@@ -16,7 +16,7 @@ export class MaVilleCP {
       this._coordonnees = new Coordonnee();
 
         // Hydrate the collection with some datas from the bdd
-      this._hydrate();
+      //this._hydrate();
     }
 
     /**
@@ -35,8 +35,8 @@ export class MaVilleCP {
     }
 
     /** Gets the coordonnee @return Coordonnnee */
-    public getCollection(): Promise<Coordonnee>  {
-      return this._hydrate();
+    public getCollection(id: number): Promise<Coordonnee>  {
+      return this._hydrate(id);
     }
 
     public get coordonnees(): Coordonnee {
@@ -46,10 +46,10 @@ export class MaVilleCP {
   /**
    * Retrieve anonymous collection of things...
    */
-    private _hydrate(): Promise<Coordonnee> {
+    private _hydrate(id: number): Promise<Coordonnee> {
       // push new Categories into the collection
        return new Promise((resolve) => {
-       this.http.getCoord().subscribe((res: HttpResponse<any>) => {
+       this.http.getCoord(id).subscribe((res: HttpResponse<any>) => {
        const coord: any = res.body;
 
        const currentCoord: Coordonnee = new Coordonnee();

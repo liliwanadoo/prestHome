@@ -15,7 +15,7 @@ export class MaCategorie {
       this._categories = new Categorie();
 
         // Hydrate the collection with some datas from the bdd
-      this._hydrate();
+      //this._hydrate();
     }
 
     /**
@@ -34,8 +34,8 @@ export class MaCategorie {
     }
 
     /** Gets the collection of categories @return Array<Categorie> */
-    public getCollection(): Promise<Categorie>  {
-      return this._hydrate();
+    public getCollection(id: number): Promise<Categorie>  {
+      return this._hydrate(id);
     }
 
     public get categories(): Categorie {
@@ -45,10 +45,10 @@ export class MaCategorie {
   /**
    * Retrieve anonymous collection of things...
    */
-    private _hydrate(): Promise<Categorie> {
+    private _hydrate(id: number): Promise<Categorie> {
       // push new Categories into the collection
        return new Promise((resolve) => {
-       this.http.getCat().subscribe((res: HttpResponse<any>) => {
+       this.http.getCat(id).subscribe((res: HttpResponse<any>) => {
        const cats: any = res.body;
 
         const currentCat: Categorie = new Categorie();
