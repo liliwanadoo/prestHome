@@ -16,7 +16,6 @@ export class ListeCoordonneeComponent implements OnInit {
 
   constructor(private collection: CoordonneeList) { }
   ngOnInit(): void {
-
       console.log(this.allCoord ? 'Tous' : 'Restreint');
       this.collection.getCollection(this.allCoord).then((coords: Array<Coordonnee>) => {
 
