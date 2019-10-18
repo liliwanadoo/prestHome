@@ -24,6 +24,10 @@ import { ToastrService, ToastrModule } from 'ngx-toastr';
 import { ListeCategorieComponent } from './pages/liste-categorie/liste-categorie.component';
 import { ListePrestataireComponent } from './pages/liste-prestataire/liste-prestataire.component';
 
+import { LoginComponent } from './pages/login/login.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +39,8 @@ import { ListePrestataireComponent } from './pages/liste-prestataire/liste-prest
     AddPrestaNoteComponent,
     ListeCoordonneeComponent,
     ListePrestataireComponent,
-    ListeCategorieComponent
+    ListeCategorieComponent,
+    LoginComponent
 
   ],
   imports: [

@@ -19,7 +19,6 @@ export class AccueilComponent implements OnInit {
     return this.searchForm.controls.cp;
   }
 
-
   constructor(
         private sf: FormBuilder,
     ) {}

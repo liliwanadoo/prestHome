@@ -36,6 +36,7 @@ export class HttpclientService {
       environment.apiRoot + 'NotationLists/', notation);
   }
 
+
   /**
    *  Call the api to get a specific
    * @param id : l'id du Usr ciblé
