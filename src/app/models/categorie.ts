@@ -7,11 +7,11 @@ export class Categorie {
     this._libelle = value;
   }
 
-  private _id: BigInteger;
-  public get id(): BigInteger {
+  private _id: number;
+  public get id(): number {
     return this._id;
   }
-  public set id(value: BigInteger) {
+  public set id(value: number) {
     this._id = value;
   }
 }
