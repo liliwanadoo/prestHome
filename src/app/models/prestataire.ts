@@ -7,6 +7,9 @@ export class Prestataire {
   private _idcat: number;
   private _description: string;
   private _idnotation: number[];
+  private _mail: string;
+  private _coordonnees: string;
+  private _categorie: string;
 
   public get id(): number {
     return this._id;
@@ -19,6 +22,24 @@ export class Prestataire {
   }
   public set raisonsociale(raisonsociale: string) {
     this._raisonsociale = raisonsociale;
+  }
+  public get mail(): string {
+    return this._mail;
+  }
+  public set mail(mail: string) {
+    this._mail = mail;
+  }
+  public get coordonnees(): string {
+    return this._coordonnees;
+  }
+  public set coordonnees(coordonnees: string) {
+    this._coordonnees = coordonnees;
+  }
+  public get categorie(): string {
+    return this._categorie;
+  }
+  public set categorie(categorie: string) {
+    this._categorie = categorie;
   }
   public get telephone(): string {
     return this._telephone;

@@ -65,8 +65,12 @@ export class CoordonneeList {
          currentCoordonnee.cp = coords.cp;
          currentCoordonnee.id = coords.id;
          currentCoordonnee.ville = coords.ville;
-         this._coordonnees.push(currentCoordonnee);
+         if (this._coordonnees.includes(currentCoordonnee, 0) === false) {
+           console.log("id de ma coordonnée : " + currentCoordonnee.id);
+           this._coordonnees.push(currentCoordonnee);
+          }
        });
+       this._coordonnees.sort();
         resolve(this._coordonnees);
     });
    });

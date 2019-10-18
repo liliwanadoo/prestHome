@@ -6,6 +6,7 @@ import { Categorie } from 'src/app/models/categorie';
 import { Coordonnee } from 'src/app/models/coordonnee';
 import { MaVilleCP } from 'src/app/models/ma-villeCP';
 import { CategorieList } from 'src/app/models/categorie-list';
+import { CoordonneeList } from 'src/app/models/coordonnee-list';
 
 @Component({
   selector: 'app-liste-prestataire',
@@ -18,15 +19,31 @@ export class ListePrestataireComponent implements OnInit {
   public categorie: Categorie;
   public coordonnee: Coordonnee;
   public prest: Prestataire = new Prestataire();
+  public miniPrest: Array<Prestataire>;
+  public myMiniPrest: Prestataire = new Prestataire();
+  public categories: Array<Categorie>;
+  public cat: Categorie = new Categorie();
+  @Input() allCoord: boolean;
+  public coordonnees: Array<Coordonnee>;
+  public city: Coordonnee = new Coordonnee();
 
-  public id = 7;
-  public idVilleCp = 48627;
+
+  public id = 0;
+  public idVilleCp = 0;
   constructor(private collection: PrestataireList,
+              private collectionCat: CategorieList,
               private maCategorie: MaCategorie,
               private maVilleCP: MaVilleCP,
-              private catcollection: CategorieList) { }
+              private collectionCoord: CoordonneeList) { }
 
   ngOnInit() {
+    console.log(this.allCoord ? 'Tous' : 'Restreint');
+    this.collectionCoord.getCollection(this.allCoord).then((coords: Array<Coordonnee>) => {
+     this.coordonnees = coords;
+  });
+
+    this.categories = this.collectionCat.getCollection();
+
     this.maCategorie.getCollection(this.id).then((cats: Categorie) => {
       this.categorie = cats;
     });
@@ -38,5 +55,11 @@ export class ListePrestataireComponent implements OnInit {
     this.collection.getCollection(this.allPrest).then((prests: Array<Prestataire>) => {
       this.prestataires = prests;
    });
+  }
+
+  fillPrest() {
+    console.log(JSON.stringify(this.prestataires));
+    this.miniPrest = this.collection.smallHydrate(this.prestataires, this.cat.id, this.city.id);
+    console.log('After : ' + JSON.stringify(this.miniPrest));
   }
 }
