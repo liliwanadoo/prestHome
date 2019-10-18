@@ -73,11 +73,10 @@ export class AddPrestaNoteComponent implements OnInit {
       newNotation.amabilite = this.amabilite.value;
       newNotation.qualite = this.qualite.value;
       newNotation.ponctualite = this.ponctualite.value;
-      newNotation.respectDetail = this.respectDelai.value;
+      newNotation.respectDelai = this.respectDelai.value;
       newNotation.datePrestation = this.datePrestation.value;
-      newNotation.idPrestataire = 15;
-      newNotation.idClient = 14;
-      newNotation.id = 1;
+      newNotation.idPrestataire = 3;
+      newNotation.idClient = 2;
 
       console.log('Yo.....Datas are : ' + JSON.stringify(this.noteForm.value));
       console.log('Yo.....Datas are : ' + JSON.stringify(newNotation));
@@ -91,8 +90,8 @@ export class AddPrestaNoteComponent implements OnInit {
 
       this.router.navigate(['/details']);
 
-      this.toastr.success('Votre notation à bien été enregistrée', 'NOTATION EFFECTUEE', {
-      positionClass: 'toast-bottom-center'});
+      /* this.toastr.success('Votre notation à bien été enregistrée', 'NOTATION EFFECTUEE', {
+      positionClass: 'toast-bottom-center'}); */
     } else {
       Object.keys(this.noteForm.controls).forEach(key => {
         console.log(key + ' [ ' + JSON.stringify(this.noteForm.controls[key].errors) + '] : ' + this.noteForm.controls[key].status);

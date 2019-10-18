@@ -15,10 +15,6 @@ export class AccueilComponent implements OnInit {
   //   return this.searchForm.controls.ville;
   // }
 
-  // public get cp(): AbstractControl {
-  //   return this.searchForm.controls.cp;
-  // }
-
   constructor(
     private sf: FormBuilder,
 ) {}
