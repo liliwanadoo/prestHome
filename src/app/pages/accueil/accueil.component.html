@@ -40,6 +40,7 @@
 						<ul class="actions">
 							<li><a href="#" class="button big">Get Started</a></li>
 						</ul>-->
+            <app-maps></app-maps>
     </section>
 
     <!-- Items -->
@@ -116,15 +117,15 @@
             <p>Un projet qui envoie du lourd...</p>
         </div><br/>
     </header>
-<<<<<<< HEAD
+
 
     <app-liste-prestataire all="true"></app-liste-prestataire>
     <app-liste-coordonnee all="false"></app-liste-coordonnee>
     <app-liste-categorie></app-liste-categorie>
-=======
+
     <app-recherche-prestataire></app-recherche-prestataire>
     <app-liste-prestataire allPrest="true"></app-liste-prestataire>
->>>>>>> 96b463e8d03764ff8194a7baea5d87ff1211bb1f
+
     <div id="signInLogin">
         <a  role='button' [routerLink]="['sign']">Inscription</a>
     </div><br/><br/>
@@ -134,9 +135,7 @@
         <a role='button' [routerLink]="['']"(click)="logout()">Deconnexion</a>
     </div><br/><br/>
 
-<<<<<<< HEAD
-=======
-    <!--     <form [formGroup]="searchForm">
+     <form [formGroup]="searchForm">
         <div class="d-flex ">
             <mat-form-field>
                 <input matInput type="text" placeholder="Ville" class="form-control" id="ville" formControlName="ville" required>
@@ -188,15 +187,12 @@
                     </p>
                 </div>
             </mat-form-field>
-<<<<<<< HEAD
->>>>>>> 96b463e8d03764ff8194a7baea5d87ff1211bb1f
 
-<<<<<<< HEAD
 </body>
 <footer>
     <app-toolbar></app-toolbar>
 </footer>
-=======
+
             <mat-form-field>
                 <input matInput type="text" placeholder="Code Postal" class="form-control" id="cp" formControlName="cp" required>
                 <div id="error" class="errorPlaceHolder" *ngIf="cp.errors && cp.touched">
@@ -236,6 +232,3 @@
         </div>
     </form>
 </body> -->
-<footer>
-    <app-toolbar></app-toolbar>
-</footer>
