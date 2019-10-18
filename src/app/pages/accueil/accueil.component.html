@@ -126,7 +126,12 @@
     <app-liste-prestataire allPrest="true"></app-liste-prestataire>
 >>>>>>> 96b463e8d03764ff8194a7baea5d87ff1211bb1f
     <div id="signInLogin">
-        <a role='button' [routerLink]="['sign']">Inscription / Connexion</a>
+        <a  role='button' [routerLink]="['sign']">Inscription</a>
+    </div><br/><br/>
+
+    <div id="loginIn" > <!--*ngIf="currentUser"-->
+        <a role='button' [routerLink]="['login']" >Connexion</a>
+        <a role='button' [routerLink]="['']"(click)="logout()">Deconnexion</a>
     </div><br/><br/>
 
 <<<<<<< HEAD

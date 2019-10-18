@@ -25,6 +25,10 @@ import { ListeCategorieComponent } from './pages/liste-categorie/liste-categorie
 import { ListePrestataireComponent } from './pages/liste-prestataire/liste-prestataire.component';
 import { RecherchePrestataireComponent } from './pages/recherche-prestataire/recherche-prestataire.component';
 
+import { LoginComponent } from './pages/login/login.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,9 +40,14 @@ import { RecherchePrestataireComponent } from './pages/recherche-prestataire/rec
     AddPrestaNoteComponent,
     ListeCoordonneeComponent,
     ListePrestataireComponent,
+<<<<<<< HEAD
     ListeCoordonneeComponent,
     ListeCategorieComponent,
     RecherchePrestataireComponent
+=======
+    ListeCategorieComponent,
+    LoginComponent
+>>>>>>> myFeature
 
   ],
   imports: [
