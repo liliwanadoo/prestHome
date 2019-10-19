@@ -1,20 +1,7 @@
-<!-- TODO : dynamiser le choix de la categorie et de la ville pour afficher les prestas correspondants-->
-<!--<div *ngFor="let categorie of categories">
-    <div class="form-group wrap-input2 validate-input" style="text-align:center;">
-        <div class=" input2">
-            <h3>Quel est la catégorie des services que vous proposez ?</h3>
-            <br><br>
-            <mat-form-field class=" input2">
-                <mat-select>
-                    <mat-option *ngFor="let categorie of categories" [value]="categorie">{{categorie.libelle}}</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
-    </div>-->
 <div class=" input2">
     <div>
         <h3>Recherche d'un prestataire :</h3>
-        <br><br>
+        <br>
         <mat-form-field class=" input2">
             <h6>Catégories</h6>
             <mat-select [(ngModel)]="cat" (selectionChange)="fillPrest()">
@@ -31,10 +18,29 @@
     </div>
 </div>
 <div>
-    <!-- <strong>Voici les prestataires de la catégorie : {{categorie.libelle}} pour la ville : {{coordonnee.ville}} (Code Postal : {{coordonnee.cp}})</strong>
---></div>
+</div>
 <div [hidden]="true" *ngFor="let prestataire of prestataires">{{prestataire.raisonsociale}} {{prestataire.telephone}} {{prestataire.mail}} {{prestataire.categorie}} {{prestataire.coordonnees}}
 </div>
-<div *ngFor="let myMiniPrest of miniPrest">{{myMiniPrest.raisonsociale}} {{myMiniPrest.telephone}} {{myMiniPrest.mail}} {{myMiniPrest.categorie}} {{myMiniPrest.coordonnees}}
-</div>
-<!--</div>-->
+<section class="main items">
+    <h4>{{ resRecherche }}<br><br></h4>
+    <div *ngFor="let myMiniPrest of miniPrest">
+        <article class="item">
+            <table>
+                <tr class="tr-prest" [ngClass]="{'wrapper' : true, 'active' : myMiniPrest.isDetailsHidden}">
+                    <td><img style="width: 50%" src="../../../assets/images/pic01.jpg" alt="" /></td>
+                    <td>
+                        <header (click)="toggleStatus(myMiniPrest);">
+                            <strong>Raison Sociale : {{myMiniPrest.raisonsociale}}</strong><br>Ville : {{myMiniPrest.coordonnees}}<br>Catégorie de service : {{myMiniPrest.categorie}}
+                            <br><u>{{affDetails}}</u><br>
+                        </header>
+                        <div [hidden]="!myMiniPrest.isDetailsHidden">
+                            <p>Téléphone : {{myMiniPrest.telephone}} </p>
+                            <p>Mail : {{myMiniPrest.mail}} </p>
+                            <p><a class="button big" [routerLink]="['notation']">Evaluer ce prestataire</a></p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </article>
+    </div>
+</section>

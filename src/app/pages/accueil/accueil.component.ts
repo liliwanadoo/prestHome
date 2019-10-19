@@ -7,7 +7,8 @@ import { FormGroup, FormControl, AbstractControl, FormBuilder, Validators } from
   styleUrls: ['./accueil.component.scss']
 })
 export class AccueilComponent implements OnInit {
-
+  public viewBanner = true;
+  public boutonBanner = "Masquer le bandeau";
   // public hasErrors = false;
   // searchForm: FormGroup;
 
@@ -23,6 +24,16 @@ export class AccueilComponent implements OnInit {
   //   ) {}
 
   ngOnInit() {
+  }
+
+  public visibilityBanner() {
+    this.viewBanner = !this.viewBanner;
+    if (this.viewBanner === false) {
+      this.boutonBanner = "Afficher le bandeau";
+    } else {
+      this.boutonBanner = "Masquer le bandeau";
+    }
+
   }
   // ngOnInit() {
   //   this.searchForm = this.sf.group({

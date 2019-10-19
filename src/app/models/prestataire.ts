@@ -11,6 +11,16 @@ export class Prestataire {
   private _coordonnees: string;
   private _categorie: string;
 
+  private _isDetailsHidden: boolean;
+
+  public get isDetailsHidden(): boolean {
+    return this._isDetailsHidden;
+  }
+
+  public set isDetailsHidden(value: boolean) {
+    this._isDetailsHidden = value;
+  }
+
   public get id(): number {
     return this._id;
   }

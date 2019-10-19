@@ -78,9 +78,6 @@ export class AddPrestaNoteComponent implements OnInit {
       newNotation.idPrestataire = 3;
       newNotation.idClient = 2;
 
-      console.log('Yo.....Datas are : ' + JSON.stringify(this.noteForm.value));
-      console.log('Yo.....Datas are : ' + JSON.stringify(newNotation));
-
       this.http.postNotation(newNotation).pipe(first())
       .subscribe((data: HttpResponse<number>) => {
         console.log('good' + data);

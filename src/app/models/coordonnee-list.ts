@@ -54,10 +54,8 @@ export class CoordonneeList {
     // push new Coordonnees into the collection
    /** let coordonnee: Coordonnee = new Coordonnee(); // Sets a variable named coordonnee
     */
-   //const coordonnees: Array<any>;
    return new Promise((resolve) => {
     this.http.getCoords(this.all).subscribe((res: HttpResponse<any>) => {
-      //this.http.getCoords().subscribe((res: HttpResponse<any>) => {
         const datas: Array<any> = res.body;
         datas.forEach((coords: any) => {
          const currentCoordonnee: Coordonnee = new Coordonnee();
@@ -66,11 +64,10 @@ export class CoordonneeList {
          currentCoordonnee.id = coords.id;
          currentCoordonnee.ville = coords.ville;
          if (this._coordonnees.includes(currentCoordonnee, 0) === false) {
-           console.log("id de ma coordonnée : " + currentCoordonnee.id);
            this._coordonnees.push(currentCoordonnee);
           }
        });
-       this._coordonnees.sort();
+        this._coordonnees.sort();
         resolve(this._coordonnees);
     });
    });

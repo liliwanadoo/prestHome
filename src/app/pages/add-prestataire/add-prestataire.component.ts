@@ -79,10 +79,8 @@ public get villeC(): AbstractControl {
 
 ngOnInit() {
   // Coordonnees
-  console.log(this.all ? 'Tous' : 'Restreint');
   this.citycollec.getCollection(this.all).then((coords: Array<Coordonnee>) => {
   this.coordonnees = coords;
-  console.log('Liste : ' + JSON.stringify(this.coordonnees));
 });
   // Categorie
   this.categories = this.collection.getCollection();
@@ -93,7 +91,6 @@ ngOnInit() {
         // Defaults to 0 if no query param provided.
         this.idUsr = +params['id'];
       });
-  console.log(this.idUsr);
   // Creation de formulaire prestataire
   this.prestForm = this.formBuilder.group({
     raisonsociale: [
@@ -134,22 +131,19 @@ ngOnInit() {
 }
 
   public submit() {
-    if(this.clientForm.valid) {
-    console.log('Yo.....Dataclient are : ' + JSON.stringify(this.clientForm.value));
+    if (this.clientForm.valid) {
     const newClient: Client = new Client();
     newClient.pseudo = this.pseudo.value;
     newClient.idusr = this.idUsr;
     newClient.idcoord = this.villeC.value;
     this.http.postClient(newClient).pipe(first())
     .subscribe((data: HttpResponse<number>) => {
-        console.log('you got this babe !' + data);
       }, (error) => {
         console.log( 'not working sorry' );
       }
     );
   }
     if (this.prestForm.valid) {
-      console.log('Yo.....DataFormPresta are : ' + JSON.stringify(this.prestForm.value));
       const newPresta: Prestataire = new Prestataire();
       newPresta.raisonsociale = this.raisonsociale.value;
       newPresta.telephone = this.tel.value;
@@ -157,11 +151,9 @@ ngOnInit() {
       newPresta.idcat = this.categoriechosen.value;
       newPresta.idcoord = this.villeP.value;
       newPresta.description = this.description.value;
-      console.log('Yo.....DataObjectPresta are : ' + JSON.stringify(newPresta));
       // TODO : RAJOUTER LES AUTRES CHAMPS DU PRESTA
       this.http.postPrestataire(newPresta).pipe(first())
       .subscribe((data: HttpResponse<number>) => {
-        console.log('you got this babe !' + data);
       }, (error) => {
         console.log( 'not working sorry' );
       }

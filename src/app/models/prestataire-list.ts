@@ -46,28 +46,22 @@ public get prestataires(): Array<Prestataire> {
 
 public smallHydrate(originPrest: Array<Prestataire>, critCat: number, critCoord: number): Array<Prestataire> {
   const resPrest: Array<Prestataire> = new Array<Prestataire>();
-  console.log('Cat : ' + critCat + ' Coords ' + critCoord);
 
   originPrest.forEach((prests: Prestataire) => {
-    console.log('Read : ' + prests.idcat + ' :: ' + prests.idcoord);
     if (critCat !== 0 && critCoord !== 0) {
     if (prests.idcoord === critCoord &&  prests.idcat === critCat) {
-        console.log('Added fullmatch');
         resPrest.push(prests);
     }
   } else if (critCat === 0 && critCoord !== 0) {
     if (prests.idcoord === critCoord) {
-      console.log('Added coords match');
       resPrest.push(prests);
     }
   } else if (critCat !== 0 && critCoord === 0) {
     if (prests.idcat === critCat) {
-      console.log('Added critMatch');
       resPrest.push(prests);
     }
   }
   });
-  console.log('Filtered : ' + resPrest.length);
   return resPrest;
 }
 
@@ -86,7 +80,6 @@ private _hydrate(): Promise<Array<Prestataire>> {
        const currentPrestataire: Prestataire = new Prestataire();
        currentPrestataire.id = prests.id;
        currentPrestataire.raisonsociale = prests.raisonsociale;
-       console.log(prests.raisonsociale);
        currentPrestataire.telephone = prests.telephone;
        currentPrestataire.idusr = prests.idusr;
        currentPrestataire.idcoord = prests.idcoord;

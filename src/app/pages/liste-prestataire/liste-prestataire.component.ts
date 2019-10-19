@@ -26,10 +26,11 @@ export class ListePrestataireComponent implements OnInit {
   @Input() allCoord: boolean;
   public coordonnees: Array<Coordonnee>;
   public city: Coordonnee = new Coordonnee();
+  public resRecherche = "Merci de patienter pendant la préparation de la liste des prestataires";
+  public affDetails = "Voir le profil détaillé du prestataire";
 
-
-  public id = 0;
-  public idVilleCp = 0;
+  //public id = 0;
+  //public idVilleCp = 0;
   constructor(private collection: PrestataireList,
               private collectionCat: CategorieList,
               private maCategorie: MaCategorie,
@@ -37,29 +38,46 @@ export class ListePrestataireComponent implements OnInit {
               private collectionCoord: CoordonneeList) { }
 
   ngOnInit() {
-    console.log(this.allCoord ? 'Tous' : 'Restreint');
     this.collectionCoord.getCollection(this.allCoord).then((coords: Array<Coordonnee>) => {
      this.coordonnees = coords;
   });
 
     this.categories = this.collectionCat.getCollection();
 
-    this.maCategorie.getCollection(this.id).then((cats: Categorie) => {
-      this.categorie = cats;
-    });
-
-    this.maVilleCP.getCollection(this.idVilleCp).then((coord: Coordonnee) => {
-      this.coordonnee = coord;
-    });
-
     this.collection.getCollection(this.allPrest).then((prests: Array<Prestataire>) => {
       this.prestataires = prests;
+      this.resRecherche = "Liste des prestataires prête pour la recherche";
    });
   }
 
+  public toggleStatus(myMiniPrest: Prestataire): void {
+    myMiniPrest.isDetailsHidden = !myMiniPrest.isDetailsHidden;
+
+    if (myMiniPrest.isDetailsHidden === false) {
+       this.affDetails = "Voir les coordonnées du prestataire";
+     } else {
+       this.affDetails = "Masquer les coordonnées du prestataire";
+     }
+   }
+
   fillPrest() {
-    console.log(JSON.stringify(this.prestataires));
+    if (!this.city.id) {
+      this.city.id = 0;
+    }
+    if (!this.cat.id) {
+      this.cat.id = 0;
+    }
+    this.resRecherche = "Liste de résultats";
+    if (this.cat.id !== 0) {
+      this.resRecherche = this.resRecherche + " pour la catégorie " + this.cat.libelle;
+    }
+    if (this.city.id !== 0) {
+      this.resRecherche = this.resRecherche + " pour la ville " + this.city.ville;
+    }
+    if (this.prestataires) {
     this.miniPrest = this.collection.smallHydrate(this.prestataires, this.cat.id, this.city.id);
-    console.log('After : ' + JSON.stringify(this.miniPrest));
+    } else {
+      this.resRecherche = "Préparation de liste en cours, merci de répéter votre demande";
+    }
   }
 }

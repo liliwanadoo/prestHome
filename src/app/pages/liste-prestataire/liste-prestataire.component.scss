@@ -1,0 +1,10 @@
+.tr-prest {
+    background-color: white;
+    color: black;
+    &.wrapper {
+        &.active {
+            background-color: rgb(75, 73, 73);
+            color: white;
+        }
+    }
+}

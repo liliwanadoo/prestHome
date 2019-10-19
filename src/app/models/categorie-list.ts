@@ -54,7 +54,6 @@ export class CategorieList {
       const currentCat: Categorie = new Categorie();
       currentCat.id = cats.id;
       currentCat.libelle = cats.libelle;
-      console.log(currentCat.id + ' ' + currentCat.libelle);
       this._categories.push(currentCat);
     });
    });
