@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+    <div class="bg-contact2" style="background-image: url('images/bg-01.jpg');">
+        <div class="container-contact2">
+            <div class="wrap-contact2">
+                <h2 style="text-align:center;">Création d'un profil</h2>
+                <br>
+                <br>
+                <h3 style="text-align:center;">Etes-vous client, prestataire ou les deux ?</h3>
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="profilavailable">
+                    <mat-radio-button class="example-radio-button" *ngFor="let profil of profilchoices" [value]="profil">
+                        {{profil}}
+                    </mat-radio-button>
+                </mat-radio-group>
+
+
+        <!-- FORMULAIRE CLIENT -->
+        <form [hidden]="profilavailable=='Prestataire' || profilavailable==null" [formGroup]="clientForm" class="contact2-form validate-form">
+        <h3 style="text-align:center;">Informations du profil Client</h3>
+          <div class="form-group validate-input">
+              <mat-form-field class=" input2">
+                  <input  matInput type="text" id="pseudo" formControlName="pseudo" placeholder="Quelle est votre pseudonyme client ?" size="530">
+                  <div class="errorPlaceHolder" *ngIf="pseudo.errors && pseudo.touched">
+                      Le pseudonyme doit faire au moins 3 caractères
+                  </div>
+              </mat-form-field>
+          </div>
+          <div class="form-group wrap-input2 validate-input" style="text-align:center;">
+            <div class=" input2" >
+<!--[(ngModel)]="cat"
+            <h3 style="text-align:center;">Quel est la ville dans laquelle vous vivez ?</h3>-->
+
+            <br><br>
+            <mat-form-field class=" input2">
+            <mat-label>Quel est la ville dans laquelle vous travaillez ?</mat-label>
+            <mat-select formControlName="villeC" >
+              <mat-option *ngFor="let coordonnee of coordonnees" [value]="coordonnee.id">{{coordonnee.ville}} {{coordonnee.cp}}</mat-option>
+            </mat-select>
+            </mat-form-field>
+            </div>
+            <br><br>
+          </div>
+
+        </form>
+<hr>
+        <!-- FORMULAIRE PRESTATAIRE -->
+        <form [hidden]="profilavailable=='Client' || profilavailable==null" [formGroup]="prestForm" class="contact2-form validate-form">
+        <h3 style="text-align:center;">Informations du profil Prestataire</h3>
+          <div class="form-group wrap-input2 validate-input">
+              <mat-form-field class=" input2">
+                  <input  matInput type="text" id="raisonsociale" formControlName="raisonsociale" placeholder="Quelle est votre raison sociale ?" size="530">
+                  <div class="errorPlaceHolder" *ngIf="raisonsociale.errors && raisonsociale.touched">
+                      La raison sociale doit faire au moins 3 caractères
+                  </div>
+              </mat-form-field>
+          </div>
+            <br>
+          <div class="form-group wrap-input2 validate-input">
+              <mat-form-field class=" input2" >
+                  <input matInput type="text" id="tel" formControlName="tel" placeholder="Quel est votre numéro de téléphone ?" size="530">
+                  <div class="errorPlaceHolder" *ngIf="tel.errors && tel.touched">
+                      Le téléphone doit faire au moins 10 caractères
+                  </div>
+              </mat-form-field>
+          </div>
+
+          <div class="form-group wrap-input2 validate-input">
+            <mat-form-field class=" input2">
+              <textarea matInput formControlName="description" placeholder="Description de votre activité"></textarea>
+            </mat-form-field>
+          </div>
+          <div class="form-group wrap-input2 validate-input" style="text-align:center;">
+            <div class=" input2" >
+<!--[(ngModel)]="cat"-->
+
+            <br>
+             <mat-form-field class=" input2">
+             <mat-label>Quel est la ville dans laquelle vous travaillez ?</mat-label>
+            <mat-select formControlName="villeP" >
+              <mat-option *ngFor="let coordonnee of coordonnees" [value]="coordonnee.id">{{coordonnee.ville}} {{coordonnee.cp}}</mat-option>
+            </mat-select>
+            </mat-form-field>
+            </div>
+          </div>
+
+
+

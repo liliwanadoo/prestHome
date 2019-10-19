@@ -15,7 +15,7 @@ export class User {
     return this._password;
   }
 
-  public set password(value: string){
+  public set password(value: string) {
     this._password = value;
   }
 }

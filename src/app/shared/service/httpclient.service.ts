@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from 'src/app/models/user';
+import { User } from '../../models/user';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../environments/environment';
+import { Client } from 'src/app/models/client';
+import { Prestataire } from 'src/app/models/prestataire';
+import { Notation } from 'src/app/models/notation';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +19,23 @@ export class HttpclientService {
    */
   public postUsr(usr: User): Observable<any> {
     return this.http.post<User>(
-      environment.apiRoot + 'UsrLists', usr);
+      environment.apiRoot + 'UsrLists/', usr);
   }
+
+  public postClient(client: Client): Observable<any> {
+    return this.http.post<Client>(
+      environment.apiRoot + 'ClientCtrl/', client);
+  }
+  public postPrestataire(prestataire: Prestataire): Observable<any> {
+    return this.http.post<Prestataire>(
+      environment.apiRoot + 'PrestLists/', prestataire);
+  }
+
+  public postNotation(notation: Notation): Observable<any> {
+    return this.http.post<Notation>(
+      environment.apiRoot + 'NotationLists/', notation);
+  }
+
 
   /**
    *  Call the api to get a specific
@@ -26,6 +44,81 @@ export class HttpclientService {
   public getUsr(id: number): Observable<any> {
     return this.http.get(
       environment.apiRoot + 'UsrLists/' + id,
+      {
+        observe: 'response'
+      }
+    );
+  }
+
+  public getNotation(id: number): Observable<any> {
+    return this.http.get(
+      environment.apiRoot + 'NotationLists/' + id,
+      {
+        observe: 'response'
+      }
+    );
+  }
+
+   /**
+    *  Call the api to get all the coords
+    */
+  public getCoords(all: boolean): Observable<any> {
+  // public getCoords(): Observable<any> {
+    const uri = all ? environment.apiRoot + 'CoordLists/' : environment.apiRoot + 'CoordLists/used/';
+    // const uri = environment.apiRoot + 'CoordLists/';
+    return this.http.get(
+      uri,
+      {
+        observe: 'response'
+      }
+    );
+  }
+
+  /**
+   *  Call the api to get all the prestataires
+   */
+  public getPrests(all: boolean): Observable<any> {
+      const uri = all ? environment.apiRoot + 'PrestLists/' : environment.apiRoot + 'PrestLists/';
+      return this.http.get(
+        uri,
+        {
+          observe: 'response'
+        }
+      );
+    }
+
+   /**
+   *  Call the api to get the cat corresponding the the idCat
+   */
+  public getCat(id: number): Observable<any> {
+    const uri = environment.apiRoot + 'CatLists/' + id;
+    return this.http.get(
+      uri,
+      {
+        observe: 'response'
+      }
+    );
+  }
+
+     /**
+   *  Call the api to get one coord
+   */
+  public getCoord(id: number): Observable<any> {
+    const uri = environment.apiRoot + 'CoordLists/' + id;
+    return this.http.get(
+      uri,
+      {
+        observe: 'response'
+      }
+    );
+  }
+
+  /**
+   *  Call the api to get all the cats
+   */
+  public getCats(): Observable<any> {
+    return this.http.get(
+      environment.apiRoot + 'CatLists/alpha/',
       {
         observe: 'response'
       }

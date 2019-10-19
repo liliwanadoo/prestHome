@@ -1,22 +1,21 @@
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-   <title>Inscription</title>
-</head>
+<!DOCTYPE html>
+<html lang="en">
 <body>
 
-  <h2>Inscription</h2>
+	<div class="bg-contact2" style="background-image: url('images/bg-01.jpg');">
+		<div class="container-contact2">
+			<div class="wrap-contact2">
+				<h2 style="text-align:center;">Inscription</h2>
+        <br>
+        <br>
 
-  <form [formGroup]="userForm">
+  <form [formGroup]="userForm" class="contact2-form validate-form">
 
-    <div class="form-group">
-      <label for="email">Votre email:</label>
-      <input type="email" placeHolder="Entrez votre email ici" class="form-control" id="email" formControlName="email" required>
-      <div id="error" class="errorPlaceHolder" *ngIf ="email.errors && email.touched">
+    <div class=" wrap-input2 validate-input">
+      <!--<label for="email">Votre email:</label>-->
+      <mat-form-field class=" input2">
+      <input matInput type="email" placeholder="Entrez votre email ici" id="email" formControlName="email" required>
+        <div id="error" class="errorPlaceHolder" *ngIf ="email.errors && email.touched">
             <p *ngIf = "email.errors.required">
               L'email est requis
             </p>
@@ -27,12 +26,14 @@
               Cet email n'est pas valide
             </p>
         </div>
+        </mat-form-field>
     </div>
 
-    <div class="form-group">
-      <label for="pwd">Votre mot de passe:</label>
-      <input type="password" placeHolder="Entrez votre email ici" class="form-control" id="pwd" formControlName="password" required>
-      <div id="error" class="errorPlaceHolder" *ngIf ="password.errors && password.touched">
+    <div class="wrap-input2 validate-input">
+      <!--<label for="pwd">Votre mot de passe:</label>-->
+      <mat-form-field class=" input2" >
+      <input matInput type="password" placeholder="Entrez votre mot de passe ici" id="pwd" formControlName="password" required>
+        <div id="error" class="errorPlaceHolder" *ngIf ="password.errors && password.touched">
             <p *ngIf = "password.errors.required">
               Le mot de passe est requis
             </p>
@@ -40,20 +41,32 @@
               Le mot de passe doit comporter au minimum 6 caractères
             </p>
         </div>
+      </mat-form-field>
     </div>
 
-    <div class="form-group form-check">
-      <label class="form-check-label">
-        <input class="form-check-input" type="checkbox"> Se souvenir de moi
-      </label>
+    <div style="text-align:center;" class="form-group form-check">
+      <mat-checkbox>Se souvenir de moi</mat-checkbox>
+      <!--<input class="form-check-input" type="checkbox"><label  class="form-check-label">
+
+      </label>-->
     </div>
+    <br>
+    <div style="text-align:center;">
+    <button mat-flat-button color="primary" type="submit" (click)="submit()"> M'inscrire </button><br/><br/>
 
-    <button type="submit"> M'inscrire </button><br/><br/>
-
-    <button routerLink=""> Annuler </button>
+    <button mat-flat-button color="warn" routerLink=""> Annuler </button>
+    </div>
   <br/><br/>
   </form>
 
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
 </body>
-
-
+</html>

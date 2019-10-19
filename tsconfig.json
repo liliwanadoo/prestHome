@@ -1,6 +1,9 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "target": "ES5",
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
