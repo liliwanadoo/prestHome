@@ -41,20 +41,11 @@ import { LoginComponent } from './pages/login/login.component';
     AddPrestaNoteComponent,
     ListeCoordonneeComponent,
     ListePrestataireComponent,
-<<<<<<< HEAD
-    ListeCoordonneeComponent,
+    RecherchePrestataireComponent,
     ListeCategorieComponent,
-<<<<<<< HEAD
-    RecherchePrestataireComponent
-=======
-    ListeCategorieComponent,
-    LoginComponent
->>>>>>> myFeature
-=======
+    LoginComponent,
     RecherchePrestataireComponent,
     MapsComponent
->>>>>>> 753ac59accb8743dc39c18e102e5c1c339ca3daa
-
   ],
   imports: [
     BrowserModule,
