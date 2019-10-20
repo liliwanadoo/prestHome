@@ -10,6 +10,7 @@ export class Prestataire {
   private _mail: string;
   private _coordonnees: string;
   private _categorie: string;
+  private _note: number;
 
   private _isDetailsHidden: boolean;
 
@@ -21,12 +22,20 @@ export class Prestataire {
     this._isDetailsHidden = value;
   }
 
+  public get note(): number {
+    return this._note;
+  }
+  public set note(note: number) {
+    this._note = note;
+  }
+
   public get id(): number {
     return this._id;
   }
   public set id(id: number) {
     this._id = id;
   }
+
   public get raisonsociale(): string {
     return this._raisonsociale;
   }

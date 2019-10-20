@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { PrestataireList } from 'src/app/models/prestataire-list';
 import { Prestataire } from 'src/app/models/prestataire';
 import { MaCategorie } from 'src/app/models/ma-categorie';
@@ -28,6 +28,7 @@ export class ListePrestataireComponent implements OnInit {
   public city: Coordonnee = new Coordonnee();
   public resRecherche = "Merci de patienter pendant la préparation de la liste des prestataires";
   public affDetails = "Voir le profil détaillé du prestataire";
+  @Output() prestEvalue: number;
 
   //public id = 0;
   //public idVilleCp = 0;
@@ -58,6 +59,11 @@ export class ListePrestataireComponent implements OnInit {
      } else {
        this.affDetails = "Masquer les coordonnées du prestataire";
      }
+   }
+
+   public evaluatePrest(prestId: number): void {
+     this.prestEvalue = prestId;
+     console.log("J'envoie le prestataire " + this.prestEvalue);
    }
 
   fillPrest() {
