@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, Input } from '@angular/core';
+import { Component, OnInit, Output, Input, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { DateValidatorService } from './../../shared/service/date-validator.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -14,7 +15,7 @@ import { HttpclientService } from 'src/app/shared/service/httpclient.service';
   styleUrls: ['./add-presta-note.component.scss']
 })
 export class AddPrestaNoteComponent implements OnInit {
-  public prestEvalue: number;
+
 
   constructor(
     private nf: FormBuilder,
@@ -22,16 +23,18 @@ export class AddPrestaNoteComponent implements OnInit {
     private router: Router,
     private toastr: ToastrService,
     private http: HttpclientService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public dialogRef: MatDialogRef<AddPrestaNoteComponent>,
+    @Inject(MAT_DIALOG_DATA) public prestEvalue: number
   ) { }
 
   public hasErrors = false;
   noteForm: FormGroup;
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-    this.prestEvalue = Number.parseInt(params['prestEvalue']);
-  });
+    // this.route.params.subscribe(params => {
+    // this.prestEvalue = Number.parseInt(params['prestEvalue']);
+    //});
     console.log(this.prestEvalue);
 
     this.noteForm = this.nf.group({
@@ -71,6 +74,10 @@ export class AddPrestaNoteComponent implements OnInit {
     return this.noteForm.controls._respectDelai;
   }
 
+  onNoClick(): void {
+    this.dialogRef.close(null);
+  }
+
   public submit() {
     if (this.noteForm.valid) {
       const newNotation: Notation = new Notation();
@@ -90,7 +97,8 @@ export class AddPrestaNoteComponent implements OnInit {
         console.log('not working');
       });
 
-      this.router.navigate(['']);
+      //this.router.navigate(['']);
+      this.onNoClick();
 
       this.toastr.success('Merci pour votre contribution. Votre notation à bien été enregistrée', 'NOTATION EFFECTUEE', {
       positionClass: 'toast-bottom-center'});
