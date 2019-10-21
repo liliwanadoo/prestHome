@@ -38,7 +38,7 @@ export class MapsComponent {
       ],
       view: new ol.View({
         center: ol.proj.fromLonLat([this.longitude, this.latitude]),
-        zoom: 15
+        zoom: 12
       })
     });
 
