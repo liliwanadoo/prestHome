@@ -39,8 +39,13 @@ export class AccueilComponent implements OnInit {
     this.idUser = sessionStorage.getItem('currentUser');
     if ( this.idUser != null) {
       this.session.logout();
+      console.log('vous êtes déconnectés');
     } else {
+      this.boutonConnexion = 'Deconnexion';
       this.router.navigate(['login']);
+      console.log('félicitations vous êtes connecté');
+      console.log('mon utilisateur : ' + sessionStorage.getItem('currentUser'));
+      this.affBoutonConnexion();
     }
     this.affBoutonConnexion();
   }

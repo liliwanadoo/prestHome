@@ -64,21 +64,12 @@ export class LoginComponent implements OnInit {
           console.log("Voici mon user " + JSON.stringify(usr));
           sessionStorage.setItem('currentUser', usr.toString());
           this.authentificationService.currentUserSubject.next(usr);
+          this.router.navigate(['']);
           return usr;
         },
         error => {
           this.error = error;
           this.loading = false;
         });
-    this.router.navigate(['']);
-    /* .pipe(first())
-    .subscribe(
-        data => {
-            this.router.navigate(['']);
-        },
-        error => {
-            this.error = error;
-            this.loading = false;
-        }); */
   }
 }

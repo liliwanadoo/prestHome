@@ -18,7 +18,7 @@ export class AuthentificationService {
     }
 
     public get currentUserValue() {
-        return this.currentUserSubject.value;
+        return sessionStorage.getItem('currentUser');
     }
 
     login(email: string, password: string) {
