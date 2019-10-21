@@ -18,11 +18,14 @@
     </div>
 </div>
 <div>
+<app-maps [coord]="city.coord" [hidden]="city.id === 0 || city.id === null"></app-maps>
 </div>
+
 <div [hidden]="true" *ngFor="let prestataire of prestataires">{{prestataire.raisonsociale}} {{prestataire.telephone}} {{prestataire.mail}} {{prestataire.categorie}} {{prestataire.coordonnees}}
 </div>
 <section class="main items">
     <h4>{{ resRecherche }}<br><br></h4>
+
     <div *ngFor="let myMiniPrest of miniPrest">
         <article class="item">
             <table>

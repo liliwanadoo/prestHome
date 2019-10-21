@@ -62,6 +62,7 @@ public smallHydrate(originPrest: Array<Prestataire>, critCat: number, critCoord:
     }
   }
   });
+  console.log('At end returns : ' + resPrest.length + ' lines');
   return resPrest;
 }
 

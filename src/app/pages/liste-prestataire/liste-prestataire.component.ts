@@ -67,9 +67,9 @@ export class ListePrestataireComponent implements OnInit {
    public evaluatePrest(prestId: number): void {
     this.prestEvalue = prestId;
     console.log('J\'envoie le prestataire ' + this.prestEvalue);
-      const dialogRef = this.dialog.open(AddPrestaNoteComponent, {
-        width: '50%', height: '100%',
-        data: this.prestEvalue });
+    const dialogRef = this.dialog.open(AddPrestaNoteComponent, {
+      width: '50%', height: '100%',
+      data: this.prestEvalue });
   }
 
   fillPrest() {
@@ -79,15 +79,19 @@ export class ListePrestataireComponent implements OnInit {
     if (!this.cat.id) {
       this.cat.id = 0;
     }
+    console.log('Search for city : ' + this.city.id + ' ' + this.city.coord + ' and cat :' + this.cat.id);
+
     this.resRecherche = 'Liste de résultats';
+
     if (this.cat.id !== 0) {
       this.resRecherche = this.resRecherche + ' pour la catégorie ' + this.cat.libelle;
     }
+
     if (this.city.id !== 0) {
       this.resRecherche = this.resRecherche + ' pour la ville ' + this.city.ville;
     }
     if (this.prestataires) {
-    this.miniPrest = this.collection.smallHydrate(this.prestataires, this.cat.id, this.city.id);
+      this.miniPrest = this.collection.smallHydrate(this.prestataires, this.cat.id, this.city.id);
     } else {
       this.resRecherche = 'Préparation de liste en cours, merci de répéter votre demande';
     }

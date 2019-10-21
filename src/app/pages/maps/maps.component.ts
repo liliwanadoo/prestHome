@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
 declare var ol: any;
 @Component({
@@ -6,16 +6,29 @@ declare var ol: any;
   templateUrl: './maps.component.html',
   styleUrls: ['./maps.component.scss']
 })
-export class MapsComponent implements OnInit {
+export class MapsComponent {
 
   constructor() { }
-  @Input() coord: string;
-  latitude: number = 18.5204;
-  longitude: number = 73.8567;
 
+  latitude: number = 0;
+  longitude: number = 0;
   map: any;
 
-  ngOnInit() {
+  @ViewChild('map', {static: true}) mapDiv;
+
+  @Input() set coord(latlong: string){
+    const coords: Array<string> = latlong.split(',');
+    this.latitude = parseFloat(coords[0]);
+    this.longitude = parseFloat(coords[1]);
+    this.map = null;
+    // Just remove map element content... to prevent duplicate
+    this.mapDiv.nativeElement.innerHTML = '';
+    this._defineMap();
+  }
+
+
+
+  private _defineMap() {
     this.map = new ol.Map({
       target: 'map',
       layers: [
