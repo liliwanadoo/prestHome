@@ -87,6 +87,7 @@ private _hydrate(): Promise<Array<Prestataire>> {
        currentPrestataire.coordonnees = prests.coordonnees;
        currentPrestataire.categorie = prests.categorie;
        currentPrestataire.mail = prests.mail;
+       currentPrestataire.note = prests.note;
        this._prestataires.push(currentPrestataire);
       });
       resolve(this._prestataires);

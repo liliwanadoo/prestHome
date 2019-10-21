@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'sign', component: SignInComponent},
   { path: 'details', component: PrestataireDetailsComponent},
   { path: 'fillprofil', component: AddPrestataireComponent},
-  { path: 'notation', component: AddPrestaNoteComponent},
+  { path: 'notation/:prestEvalue', component: AddPrestaNoteComponent},
   { path: 'login', component: LoginComponent }
 ];
 

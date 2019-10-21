@@ -10,8 +10,16 @@ export class Prestataire {
   private _mail: string;
   private _coordonnees: string;
   private _categorie: string;
+  private _note: number;
 
   private _isDetailsHidden: boolean;
+
+  public get note(): number {
+    return this._note;
+  }
+  public set note(note: number) {
+    this._note = note;
+  }
 
   public get isDetailsHidden(): boolean {
     return this._isDetailsHidden;

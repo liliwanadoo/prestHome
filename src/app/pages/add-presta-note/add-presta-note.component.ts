@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, Input } from '@angular/core';
 import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { DateValidatorService } from './../../shared/service/date-validator.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Notation } from 'src/app/models/notation';
 import { first } from 'rxjs/operators';
@@ -14,25 +14,29 @@ import { HttpclientService } from 'src/app/shared/service/httpclient.service';
   styleUrls: ['./add-presta-note.component.scss']
 })
 export class AddPrestaNoteComponent implements OnInit {
+  public prestEvalue: number;
 
   constructor(
     private nf: FormBuilder,
     private dateValidator: DateValidatorService,
     private router: Router,
     private toastr: ToastrService,
-    private http: HttpclientService
+    private http: HttpclientService,
+    private route: ActivatedRoute
   ) { }
 
   public hasErrors = false;
   noteForm: FormGroup;
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+    this.prestEvalue = Number.parseInt(params['prestEvalue']);
+  });
+    console.log(this.prestEvalue);
+
     this.noteForm = this.nf.group({
       _datePrestation: [
-        '',
-        Validators.required,
-        this.dateValidator.isLowerThan.bind(this.dateValidator)
-      ],
+        ''],
       _amabilite: [
         '',
         Validators.required
@@ -75,7 +79,8 @@ export class AddPrestaNoteComponent implements OnInit {
       newNotation.ponctualite = this.ponctualite.value;
       newNotation.respectDelai = this.respectDelai.value;
       newNotation.datePrestation = this.datePrestation.value;
-      newNotation.idPrestataire = 3;
+      console.log("Je vais évaluer le prestataire " + this.prestEvalue);
+      newNotation.idPrestataire = this.prestEvalue;
       newNotation.idClient = 2;
 
       this.http.postNotation(newNotation).pipe(first())
@@ -85,10 +90,10 @@ export class AddPrestaNoteComponent implements OnInit {
         console.log('not working');
       });
 
-      this.router.navigate(['/details']);
+      this.router.navigate(['']);
 
-      /* this.toastr.success('Votre notation à bien été enregistrée', 'NOTATION EFFECTUEE', {
-      positionClass: 'toast-bottom-center'}); */
+      this.toastr.success('Merci pour votre contribution. Votre notation à bien été enregistrée', 'NOTATION EFFECTUEE', {
+      positionClass: 'toast-bottom-center'});
     } else {
       Object.keys(this.noteForm.controls).forEach(key => {
         console.log(key + ' [ ' + JSON.stringify(this.noteForm.controls[key].errors) + '] : ' + this.noteForm.controls[key].status);
