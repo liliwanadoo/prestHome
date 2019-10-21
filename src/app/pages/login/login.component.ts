@@ -6,7 +6,8 @@ import { AuthentificationService } from 'src/app/shared/service/authentification
 
 
 
-@Component({ templateUrl: 'login.component.html' })
+@Component({ templateUrl: 'login.component.html',
+  styleUrls: ['./login.component.scss'] })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
