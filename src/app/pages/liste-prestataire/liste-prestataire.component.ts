@@ -7,6 +7,8 @@ import { Coordonnee } from 'src/app/models/coordonnee';
 import { MaVilleCP } from 'src/app/models/ma-villeCP';
 import { CategorieList } from 'src/app/models/categorie-list';
 import { CoordonneeList } from 'src/app/models/coordonnee-list';
+import { MatDialog } from '@angular/material';
+import { AddPrestaNoteComponent } from '../add-presta-note/add-presta-note.component';
 
 @Component({
   selector: 'app-liste-prestataire',
@@ -36,6 +38,7 @@ export class ListePrestataireComponent implements OnInit {
               private collectionCat: CategorieList,
               private maCategorie: MaCategorie,
               private maVilleCP: MaVilleCP,
+              private dialog: MatDialog,
               private collectionCoord: CoordonneeList) { }
 
   ngOnInit() {
@@ -64,6 +67,9 @@ export class ListePrestataireComponent implements OnInit {
    public evaluatePrest(prestId: number): void {
     this.prestEvalue = prestId;
     console.log('J\'envoie le prestataire ' + this.prestEvalue);
+      const dialogRef = this.dialog.open(AddPrestaNoteComponent, {
+        width: '50%', height: '100%',
+        data: this.prestEvalue });
   }
 
   fillPrest() {
