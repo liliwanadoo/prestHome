@@ -36,6 +36,14 @@ export class HttpclientService {
       environment.apiRoot + 'NotationLists/', notation);
   }
 
+  public getIdCliFromIdUser(idUser: number): Observable<any> {
+    return this.http.get(
+      environment.apiRoot + 'NotationLists/details/' + idUser,
+      {
+        observe: 'response'
+      }
+    );
+  }
 
   /**
    *  Call the api to get a specific

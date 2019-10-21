@@ -10,6 +10,8 @@ import { CoordonneeList } from 'src/app/models/coordonnee-list';
 import { MatDialog } from '@angular/material';
 import { AddPrestaNoteComponent } from '../add-presta-note/add-presta-note.component';
 import { ToastrService } from 'ngx-toastr';
+import { HttpclientService } from 'src/app/shared/service/httpclient.service';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-liste-prestataire',
@@ -39,6 +41,7 @@ export class ListePrestataireComponent implements OnInit {
               private collectionCat: CategorieList,
               private maCategorie: MaCategorie,
               private maVilleCP: MaVilleCP,
+              private http: HttpclientService,
               private dialog: MatDialog,
               private toastr: ToastrService,
               private collectionCoord: CoordonneeList) { }
@@ -73,7 +76,23 @@ export class ListePrestataireComponent implements OnInit {
      }
    }
 
+  /**
+   * Retrieve anonymous collection of things...
+   */
+  private _checkIdCli(id: any): Promise<number> {
+    // push new Categories into the collection
+     return new Promise((resolve) => {
+     this.http.getIdCliFromIdUser(id).subscribe((res: HttpResponse<any>) => {
+     const idCli: any = res.body;
+     resolve(idCli);
+    });
+   });
+  }
+
    public evaluatePrest(prestId: number): void {
+    const idCli: any = this._checkIdCli(sessionStorage.getItem('currentUser'));
+    console.log ("mon idCli : " + idCli);
+
     this.prestEvalue = prestId;
     console.log('J\'envoie le prestataire ' + this.prestEvalue);
     const dialogRef = this.dialog.open(AddPrestaNoteComponent, {
