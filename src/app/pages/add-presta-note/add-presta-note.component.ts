@@ -30,15 +30,13 @@ export class AddPrestaNoteComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-    this.prestEvalue = Number.parseInt(params['prestEvalue']);});
+    this.prestEvalue = Number.parseInt(params['prestEvalue']);
+  });
     console.log(this.prestEvalue);
 
     this.noteForm = this.nf.group({
       _datePrestation: [
-        '',
-        Validators.required,
-        this.dateValidator.isLowerThan.bind(this.dateValidator)
-      ],
+        ''],
       _amabilite: [
         '',
         Validators.required

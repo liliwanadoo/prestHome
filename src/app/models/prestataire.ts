@@ -14,6 +14,13 @@ export class Prestataire {
 
   private _isDetailsHidden: boolean;
 
+  public get note(): number {
+    return this._note;
+  }
+  public set note(note: number) {
+    this._note = note;
+  }
+
   public get isDetailsHidden(): boolean {
     return this._isDetailsHidden;
   }

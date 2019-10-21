@@ -47,7 +47,7 @@ export class ListePrestataireComponent implements OnInit {
 
     this.collection.getCollection(this.allPrest).then((prests: Array<Prestataire>) => {
       this.prestataires = prests;
-      this.resRecherche = "Liste des prestataires prête pour la recherche";
+      this.resRecherche = 'Liste des prestataires prête pour la recherche';
    });
   }
 
@@ -55,16 +55,16 @@ export class ListePrestataireComponent implements OnInit {
     myMiniPrest.isDetailsHidden = !myMiniPrest.isDetailsHidden;
 
     if (myMiniPrest.isDetailsHidden === false) {
-       this.affDetails = "Voir les coordonnées du prestataire";
+       this.affDetails = 'Voir les coordonnées du prestataire';
      } else {
-       this.affDetails = "Masquer les coordonnées du prestataire";
+       this.affDetails = 'Masquer les coordonnées du prestataire';
      }
    }
 
    public evaluatePrest(prestId: number): void {
-     this.prestEvalue = prestId;
-     console.log("J'envoie le prestataire " + this.prestEvalue);
-   }
+    this.prestEvalue = prestId;
+    console.log('J\'envoie le prestataire ' + this.prestEvalue);
+  }
 
   fillPrest() {
     if (!this.city.id) {
@@ -73,17 +73,17 @@ export class ListePrestataireComponent implements OnInit {
     if (!this.cat.id) {
       this.cat.id = 0;
     }
-    this.resRecherche = "Liste de résultats";
+    this.resRecherche = 'Liste de résultats';
     if (this.cat.id !== 0) {
-      this.resRecherche = this.resRecherche + " pour la catégorie " + this.cat.libelle;
+      this.resRecherche = this.resRecherche + ' pour la catégorie ' + this.cat.libelle;
     }
     if (this.city.id !== 0) {
-      this.resRecherche = this.resRecherche + " pour la ville " + this.city.ville;
+      this.resRecherche = this.resRecherche + ' pour la ville ' + this.city.ville;
     }
     if (this.prestataires) {
     this.miniPrest = this.collection.smallHydrate(this.prestataires, this.cat.id, this.city.id);
     } else {
-      this.resRecherche = "Préparation de liste en cours, merci de répéter votre demande";
+      this.resRecherche = 'Préparation de liste en cours, merci de répéter votre demande';
     }
   }
 }
