@@ -1,3 +1,12 @@
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 
@@ -9,7 +18,7 @@
 
 body, html {
 	height: 100%;
-	font-family: Poppins-Regular, sans-serif;
+	//font-family: Poppins-Regular;//, sans-serif;
 }
 
 /*---------------------------------------------*/
@@ -128,11 +137,15 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: rgba(219,21,99,0.8);
+  background-image: url("../../../assets/images/bannerFlou.jpg");
+  background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  /*background: rgba(219,21,99,0.8);
   background: -webkit-linear-gradient(45deg, #fcacdb, #57bbfd);
   background: -o-linear-gradient(45deg, #fcacdb, #57bbfd);
   background: -moz-linear-gradient(45deg, #fcacdb, #57bbfd);
-  background: linear-gradient(45deg, #fcacdb, #57bbfd);
+  background: linear-gradient(45deg, #fcacdb, #57bbfd);*/
 }
 
 .wrap-contact2 {
@@ -207,11 +220,15 @@ iframe {
   -moz-transition: all 0.4s;
   transition: all 0.4s;
 
-  background: rgba(219,21,99,1);
+  background-image: url("../../../assets/images/bannerFlou.jpg");
+  background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  /*background: rgba(219,21,99,0.8);
   background: -webkit-linear-gradient(45deg, #fcacdb, #57bbfd);
   background: -o-linear-gradient(45deg, #fcacdb, #57bbfd);
   background: -moz-linear-gradient(45deg, #fcacdb, #57bbfd);
-  background: linear-gradient(45deg, #fcacdb, #57bbfd);
+  background: linear-gradient(45deg, #fcacdb, #57bbfd);*/
 }
 
 .focus-input2::after {
@@ -298,12 +315,15 @@ textarea.input2 + .focus-input2::after {
   z-index: -1;
   width: 300%;
   height: 100%;
-  background: rgba(219,21,99,1);
-  background: -webkit-linear-gradient(-135deg, #d5007d, #e53935, #d5007d, #e53935);
-  background: -o-linear-gradient(-135deg, #d5007d, #e53935, #d5007d, #e53935);
-  background: -moz-linear-gradient(-135deg, #d5007d, #e53935, #d5007d, #e53935);
-  background: linear-gradient(-135deg, #d5007d, #e53935, #d5007d, #e53935);
-  top: 0;
+  background-image: url("../../../assets/images/bannerFlou.jpg");
+  background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  /*background: rgba(219,21,99,0.8);
+  background: -webkit-linear-gradient(45deg, #fcacdb, #57bbfd);
+  background: -o-linear-gradient(45deg, #fcacdb, #57bbfd);
+  background: -moz-linear-gradient(45deg, #fcacdb, #57bbfd);
+  background: linear-gradient(45deg, #fcacdb, #57bbfd);*/top: 0;
   left: -100%;
 
   -webkit-transition: all 0.4s;

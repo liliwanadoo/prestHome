@@ -1,4 +1,4 @@
-<div [hidden]="viewBanner">
+<div [hidden]="viewBanner" style="text-align:center;">
     <ul class="actions">
         <li><a class="button big" [routerLink]="['sign']">Inscrivez-vous !</a></li>
         <li><button style="font-size: 0.8em;" (click)="visibilityBanner()">{{boutonBanner}}</button></li>
@@ -13,6 +13,7 @@
             </ul>
         </div>
         <div class="inner">
+        <span><img src="../../../assets/images/logoPresta.png" height="100" width="100"></span>
             <h1>Prestafind</h1>
             <p>Notre plateforme vous permet de chercher des prestataires de service<br>recommandés par d'autres clients aux alentours de chez vous</p>
         </div>
