@@ -61,6 +61,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         usr => {
           // store user details and jwt token in session storage to keep user logged in between page refreshes
+          console.log("Voici mon user " + JSON.stringify(usr));
           sessionStorage.setItem('currentUser', usr.toString());
           this.authentificationService.currentUserSubject.next(usr);
           return usr;

@@ -22,7 +22,7 @@ export class AuthentificationService {
     }
 
     login(email: string, password: string) {
-        return this.http.get<number>(environment.apiRoot + 'UsrLists/' + email + password);
+        return this.http.get<number>(environment.apiRoot + 'UsrLists/' + email + '/' + password);
     }
 
     logout() {

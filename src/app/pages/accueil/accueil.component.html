@@ -1,6 +1,7 @@
 <div [hidden]="viewBanner" style="text-align:center;">
     <ul class="actions">
         <li><a class="button big" [routerLink]="['sign']">Inscrivez-vous !</a></li>
+        <li><button style="font-size: 0.8em;" (click)="visibilityConnexion()">{{boutonConnexion}}</button></li>
         <li><button style="font-size: 0.8em;" (click)="visibilityBanner()">{{boutonBanner}}</button></li>
     </ul>
 </div>
@@ -9,12 +10,13 @@
         <div>
             <ul class="actions">
                 <li><a style="background-color: white;" class="button big" [routerLink]="['sign']">Inscrivez-vous !</a></li>
+                <li><button style="background-color: white; height: 3.75em; font-size: 0.8em;" (click)="visibilityConnexion()">{{boutonConnexion}}</button></li>
                 <li><button style="background-color: white; height: 3.75em; font-size: 0.8em;" (click)="visibilityBanner()">{{boutonBanner}}</button></li>
             </ul>
         </div>
         <div class="inner">
-        <span><img src="../../../assets/images/logoPresta.png" height="100" width="100"></span>
-            <h1>Prestafind</h1>
+            <span></span>
+            <h1>Prestafind <img src="../../../assets/images/logoPresta.png" height="100" width="100"></h1>
             <p>Notre plateforme vous permet de chercher des prestataires de service<br>recommandés par d'autres clients aux alentours de chez vous</p>
         </div>
     </header>
@@ -31,6 +33,7 @@
         <header>
             <h2>Merci de votre visite</h2>
             <p>Ce site propose des évaluations et des prestataires proposés par des clients pour d'autres clients. Les données renseignées le sont par les clients et s'appuient sur la bonne foi des contributeurs.</p>
+            <span><img src="../../../assets/images/logoPresta.png" height="100" width="100"></span>
         </header>
     </section>
 

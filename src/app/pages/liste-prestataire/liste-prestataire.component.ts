@@ -9,6 +9,7 @@ import { CategorieList } from 'src/app/models/categorie-list';
 import { CoordonneeList } from 'src/app/models/coordonnee-list';
 import { MatDialog } from '@angular/material';
 import { AddPrestaNoteComponent } from '../add-presta-note/add-presta-note.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-liste-prestataire',
@@ -39,6 +40,7 @@ export class ListePrestataireComponent implements OnInit {
               private maCategorie: MaCategorie,
               private maVilleCP: MaVilleCP,
               private dialog: MatDialog,
+              private toastr: ToastrService,
               private collectionCoord: CoordonneeList) { }
 
   ngOnInit() {
@@ -60,7 +62,14 @@ export class ListePrestataireComponent implements OnInit {
     if (myMiniPrest.isDetailsHidden === false) {
        this.affDetails = 'Voir les coordonnées du prestataire';
      } else {
-       this.affDetails = 'Masquer les coordonnées du prestataire';
+      if ( sessionStorage.getItem('currentUser') != null) {
+        this.affDetails = 'Masquer les coordonnées du prestataire';
+      } else {
+        this.toastr.success('Vous devez être connecté(e) pour afficher les coordonnées des prestataires', 'INFORMATION', {
+          positionClass: 'toast-bottom-center'});
+        console.log ('utilisateur non connecte, on masque les details');
+        myMiniPrest.isDetailsHidden = false;
+      }
      }
    }
 
